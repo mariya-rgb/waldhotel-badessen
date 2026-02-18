@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.waldhotel-badessen.de/sitemap.xml

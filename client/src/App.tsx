@@ -4,32 +4,78 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
+import { CookieProvider } from "./contexts/CookieContext";
 import Home from "./pages/Home";
+import Rooms from "./pages/Rooms";
+import Wellness from "./pages/Wellness";
+import Location from "./pages/Location";
+import Booking from "./pages/Booking";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 
+// Wrapper for English routes that sets language to 'en'
+function EnHome() { return <Home />; }
+function EnRooms() { return <Rooms />; }
+function EnWellness() { return <Wellness />; }
+function EnLocation() { return <Location />; }
+function EnBooking() { return <Booking />; }
+function EnImprint() { return <Impressum />; }
+function EnPrivacy() { return <Datenschutz />; }
 
-function Router() {
+function DeRouter() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <LanguageProvider initialLang="de">
+      <CookieProvider>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/zimmer" component={Rooms} />
+          <Route path="/wellness" component={Wellness} />
+          <Route path="/bad-essen" component={Location} />
+          <Route path="/buchen" component={Booking} />
+          <Route path="/impressum" component={Impressum} />
+          <Route path="/datenschutz" component={Datenschutz} />
+          <Route path="/404" component={NotFound} />
+          <Route component={NotFound} />
+        </Switch>
+      </CookieProvider>
+    </LanguageProvider>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+function EnRouter() {
+  return (
+    <LanguageProvider initialLang="en">
+      <CookieProvider>
+        <Switch>
+          <Route path="/en" component={EnHome} />
+          <Route path="/en/rooms" component={EnRooms} />
+          <Route path="/en/wellness" component={EnWellness} />
+          <Route path="/en/location" component={EnLocation} />
+          <Route path="/en/book" component={EnBooking} />
+          <Route path="/en/imprint" component={EnImprint} />
+          <Route path="/en/privacy" component={EnPrivacy} />
+          <Route component={NotFound} />
+        </Switch>
+      </CookieProvider>
+    </LanguageProvider>
+  );
+}
+
+function Router() {
+  // Check if current path starts with /en
+  const isEnglish = window.location.pathname.startsWith('/en');
+  
+  if (isEnglish) {
+    return <EnRouter />;
+  }
+  return <DeRouter />;
+}
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
