@@ -64,7 +64,7 @@ export default function Location() {
     <div className="min-h-screen">
       <Header />
       <HeroSection
-        image={IMAGES.nature}
+        image={IMAGES.hotelExteriorWinter}
         title={t.locationPage.heroTitle}
         alt={lang === 'de' ? 'Wiehengebirge Panorama' : 'Wiehengebirge panorama'}
         height="h-[60vh] min-h-[400px]"

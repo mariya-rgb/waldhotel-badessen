@@ -32,3 +32,10 @@
 - [x] KI-generierte Zimmerbilder in images.ts durch echte ersetzen
 - [x] Datenbank-Einträge (rooms.imageUrl) aktualisieren
 - [x] Website testen und Checkpoint erstellen
+
+## Echte Außenbilder einbinden
+- [x] 5 Außenbilder auf CDN hochladen
+- [x] Hero-Bild der Startseite durch echtes Außenfoto ersetzen
+- [x] Hotel-Sektion Bild aktualisieren
+- [x] Lage-Seite Natur-Bild aktualisieren
+- [x] Website testen und Checkpoint erstellen
