@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/FgUOplILykpcxCvC.png' WHERE slug = 'double';\nUPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/BKCDGgbIaRDxbxug.jpg' WHERE slug = 'single';\nUPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/fUEmsqmAhdfbLZit.png' WHERE slug = 'suite';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute UPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/FgUOplILykpcxCvC.png' WHERE slug = 'double';\nUPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/BKCDGgbIaRDxbxug.jpg' WHERE slug = 'single';\nUPDATE rooms SET imageUrl = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/fUEmsqmAhdfbLZit.png' WHERE slug = 'suite';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 486
+}

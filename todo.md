@@ -26,3 +26,9 @@
 ## Phase 6: Testen & Checkpoint
 - [x] Alle Seiten testen
 - [x] Checkpoint speichern
+
+## Echte Bilder einbinden
+- [x] 5 Zimmerbilder auf CDN hochladen
+- [x] KI-generierte Zimmerbilder in images.ts durch echte ersetzen
+- [x] Datenbank-Einträge (rooms.imageUrl) aktualisieren
+- [x] Website testen und Checkpoint erstellen

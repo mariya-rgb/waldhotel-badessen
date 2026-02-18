@@ -29,11 +29,11 @@ function RevealSection({ children, className = '', delay = 0 }: { children: Reac
   );
 }
 
-// Map room slugs to images
+// Map room slugs to echte Zimmerbilder
 const roomImages: Record<string, string> = {
-  double: IMAGES.room,
-  single: IMAGES.hotelExterior2,
-  suite: IMAGES.hero,
+  double: IMAGES.roomDouble,
+  single: IMAGES.roomSingle,
+  suite: IMAGES.roomSuite,
 };
 
 export default function Rooms() {
@@ -57,9 +57,9 @@ export default function Rooms() {
         amenities: [Wifi, Tv, Coffee, Bath, ...(room.slug === 'suite' ? [Dog] : [])],
       }))
     : [
-        { ...t.roomsPage.double, image: IMAGES.room, slug: 'double', amenities: [Wifi, Tv, Coffee, Bath] },
-        { ...t.roomsPage.single, image: IMAGES.hotelExterior2, slug: 'single', amenities: [Wifi, Tv, Coffee, Bath] },
-        { ...t.roomsPage.suite, image: IMAGES.hero, slug: 'suite', amenities: [Wifi, Tv, Coffee, Bath, Dog] },
+        { ...t.roomsPage.double, image: IMAGES.roomDouble, slug: 'double', amenities: [Wifi, Tv, Coffee, Bath] },
+        { ...t.roomsPage.single, image: IMAGES.roomSingle, slug: 'single', amenities: [Wifi, Tv, Coffee, Bath] },
+        { ...t.roomsPage.suite, image: IMAGES.roomSuite, slug: 'suite', amenities: [Wifi, Tv, Coffee, Bath, Dog] },
       ];
 
   const extrasData = dbExtras && dbExtras.length > 0
@@ -74,7 +74,7 @@ export default function Rooms() {
     <div className="min-h-screen">
       <Header />
       <HeroSection
-        image={IMAGES.room}
+        image={IMAGES.roomDouble}
         title={t.roomsPage.heroTitle}
         alt={lang === 'de' ? 'Hotelzimmer im Waldhotel Bad Essen' : 'Hotel room at Waldhotel Bad Essen'}
         height="h-[60vh] min-h-[400px]"

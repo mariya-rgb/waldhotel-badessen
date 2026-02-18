@@ -18,4 +18,11 @@ export const IMAGES = {
   hotelExterior2: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/yGDuOZMxDGrsEsVa.jpg',
   logo: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/AcDmyCGdtMWyoUZD.png',
   astDeko: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/jmNFTGxMISyeqMLB.webp',
+
+  // Echte Zimmerbilder
+  roomBathroom: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/ugbDlJMEOflWXsPa.jpg',
+  roomSingle: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/BKCDGgbIaRDxbxug.jpg',
+  roomLounge: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/OqtDfoBMANIDxLlY.png',
+  roomDouble: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/FgUOplILykpcxCvC.png',
+  roomSuite: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/fUEmsqmAhdfbLZit.png',
 } as const;
