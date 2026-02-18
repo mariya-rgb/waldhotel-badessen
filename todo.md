@@ -43,3 +43,13 @@
 ## Bugfixes
 - [x] Scroll-to-top beim Seitenwechsel implementieren (Seite lädt von unten nach oben)
 - [x] Telefonnummer überall auf +4917632419623 ändern (Header, Footer, Buchungsseite, i18n, Impressum, Datenschutz, JsonLd, Seed-Script, Datenbank)
+
+## Kontaktformular & Footer-Logo-Fix
+- [x] Footer-Logo sichtbar machen (eigene weiße Logo-Version mit transparentem Hintergrund erstellt)
+- [x] Backend: tRPC-Prozedur für Kontaktformular mit Benachrichtigung erstellen
+- [x] Datenbank: contact_messages Tabelle erstellen
+- [x] Frontend: Kontaktformular-Komponente erstellen
+- [x] Kontaktformular auf Buchungsseite einbinden
+- [x] i18n-Übersetzungen für Kontaktformular (DE + EN)
+- [x] Vitest-Tests schreiben (alle 20 Tests bestanden)
+- [x] Testen und Checkpoint erstellen

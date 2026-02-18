@@ -8,6 +8,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import ContactForm from '@/components/ContactForm';
 import { Phone, Mail } from 'lucide-react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -94,6 +95,17 @@ export default function Booking() {
               </div>
             </div>
           </RevealSection>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <RevealSection>
+              <ContactForm />
+            </RevealSection>
+          </div>
         </div>
       </section>
 

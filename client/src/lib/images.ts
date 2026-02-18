@@ -18,6 +18,8 @@ export const IMAGES = {
   hotelExteriorWinter: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/xrsjEzteJcFkFeUs.png',
   hotelExterior2: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/hxsLfdTCfjtQAtqu.png',
   logo: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/AcDmyCGdtMWyoUZD.png',
+  logoWhite: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/ihFbKXygpiaVOLDn.png',
+  logoTransparent: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/SfFSysDeiVvyhCfi.png',
   astDeko: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/jmNFTGxMISyeqMLB.webp',
 
   // Echte Zimmerbilder

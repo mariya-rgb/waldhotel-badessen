@@ -22,9 +22,9 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="lg:col-span-1">
             <img
-              src={IMAGES.logo}
+              src={IMAGES.logoWhite}
               alt="Waldhotel Bad Essen"
-              className="h-14 w-auto mb-6 brightness-0 invert opacity-90"
+              className="h-14 w-auto mb-6 opacity-90"
             />
             <p className="text-sm leading-relaxed text-white/60">
               {lang === 'de'

@@ -15,6 +15,13 @@
       "when": 1771422433636,
       "tag": "0001_daffy_robbie_robertson",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1771437778831,
+      "tag": "0002_fat_proemial_gods",
+      "breakpoints": true
     }
   ]
 }

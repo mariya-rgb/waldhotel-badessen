@@ -189,3 +189,21 @@ export const roomNotes = mysqlTable("room_notes", {
 
 export type RoomNote = typeof roomNotes.$inferSelect;
 export type InsertRoomNote = typeof roomNotes.$inferInsert;
+
+/**
+ * Contact messages – guest inquiries via contact form
+ */
+export const contactMessages = mysqlTable("contact_messages", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 64 }),
+  subject: varchar("subject", { length: 255 }),
+  message: text("message").notNull(),
+  lang: varchar("lang", { length: 5 }).default("de"),
+  isRead: boolean("isRead").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ContactMessage = typeof contactMessages.$inferSelect;
+export type InsertContactMessage = typeof contactMessages.$inferInsert;

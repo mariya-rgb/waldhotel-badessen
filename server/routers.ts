@@ -7,7 +7,9 @@ import {
   getHotelInfo, getRooms, getExtras, getRoomNotes,
   getWellnessOfferings, getWellnessHours, getWellnessPrices,
   getLocationSections, getPageMeta, getAllPagesMeta,
+  createContactMessage,
 } from "./db";
+import { notifyOwner } from "./_core/notification";
 
 const langInput = z.object({ lang: z.enum(["de", "en"]) });
 
@@ -87,6 +89,46 @@ export const appRouter = router({
       .input(langInput)
       .query(async ({ input }) => {
         return getLocationSections(input.lang);
+      }),
+  }),
+
+  contact: router({
+    /** Submit a contact form message */
+    submit: publicProcedure
+      .input(z.object({
+        name: z.string().min(2, "Name ist erforderlich"),
+        email: z.string().email("Ungültige E-Mail-Adresse"),
+        phone: z.string().optional(),
+        subject: z.string().optional(),
+        message: z.string().min(10, "Nachricht muss mindestens 10 Zeichen lang sein"),
+        lang: z.enum(["de", "en"]).default("de"),
+      }))
+      .mutation(async ({ input }) => {
+        // Save to database
+        await createContactMessage({
+          name: input.name,
+          email: input.email,
+          phone: input.phone || null,
+          subject: input.subject || null,
+          message: input.message,
+          lang: input.lang,
+        });
+
+        // Notify hotel owner
+        const subjectLine = input.subject || (input.lang === "de" ? "Neue Anfrage" : "New Inquiry");
+        await notifyOwner({
+          title: `Neue Kontaktanfrage: ${subjectLine}`,
+          content: [
+            `Name: ${input.name}`,
+            `E-Mail: ${input.email}`,
+            input.phone ? `Telefon: ${input.phone}` : "",
+            `Betreff: ${subjectLine}`,
+            `---`,
+            input.message,
+          ].filter(Boolean).join("\n"),
+        });
+
+        return { success: true };
       }),
   }),
 

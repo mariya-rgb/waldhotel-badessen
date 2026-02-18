@@ -5,6 +5,7 @@ import {
   hotelInfo, rooms, extras, roomNotes,
   wellnessOfferings, wellnessHours, wellnessPrices,
   locationSections, pagesMeta,
+  contactMessages, InsertContactMessage,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -195,4 +196,21 @@ export async function getAllPagesMeta(lang: string) {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(pagesMeta).where(eq(pagesMeta.lang, lang));
+}
+
+// ============================================================
+// Contact Messages
+// ============================================================
+
+export async function createContactMessage(data: InsertContactMessage) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(contactMessages).values(data);
+  return { success: true };
+}
+
+export async function getContactMessages() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(contactMessages).orderBy(asc(contactMessages.createdAt));
 }
