@@ -67,7 +67,7 @@ export default function Impressum() {
                 <h2 className="font-heading text-xl text-[#253541] mb-3">Umsatzsteuer-ID</h2>
                 <p>
                   Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                  [USt-IdNr. einfügen]
+                  DE457980375
                 </p>
               </div>
 

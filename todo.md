@@ -53,3 +53,6 @@
 - [x] i18n-Übersetzungen für Kontaktformular (DE + EN)
 - [x] Vitest-Tests schreiben (alle 20 Tests bestanden)
 - [x] Testen und Checkpoint erstellen
+
+## USt-IdNr. aktualisieren
+- [x] USt-IdNr. DE457980375 im Impressum eingetragen
