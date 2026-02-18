@@ -22,8 +22,8 @@ function EnLocation() { return <Location />; }
 function EnBooking() { return <Booking />; }
 function EnImprint() { return <Impressum />; }
 function EnPrivacy() { return <Datenschutz />; }
-
 function DeRouter() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <LanguageProvider initialLang="de">
       <CookieProvider>

@@ -1,0 +1,46 @@
+{
+  "query": "SELECT 'hotel_info' as tbl, COUNT(*) as cnt FROM hotel_info UNION ALL SELECT 'rooms', COUNT(*) FROM rooms UNION ALL SELECT 'extras', COUNT(*) FROM extras UNION ALL SELECT 'room_notes', COUNT(*) FROM room_notes UNION ALL SELECT 'wellness_offerings', COUNT(*) FROM wellness_offerings UNION ALL SELECT 'wellness_hours', COUNT(*) FROM wellness_hours UNION ALL SELECT 'wellness_prices', COUNT(*) FROM wellness_prices UNION ALL SELECT 'location_sections', COUNT(*) FROM location_sections UNION ALL SELECT 'pages_meta', COUNT(*) FROM pages_meta;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute SELECT 'hotel_info' as tbl, COUNT(*) as cnt FROM hotel_info UNION ALL SELECT 'rooms', COUNT(*) FROM rooms UNION ALL SELECT 'extras', COUNT(*) FROM extras UNION ALL SELECT 'room_notes', COUNT(*) FROM room_notes UNION ALL SELECT 'wellness_offerings', COUNT(*) FROM wellness_offerings UNION ALL SELECT 'wellness_hours', COUNT(*) FROM wellness_hours UNION ALL SELECT 'wellness_prices', COUNT(*) FROM wellness_prices UNION ALL SELECT 'location_sections', COUNT(*) FROM location_sections UNION ALL SELECT 'pages_meta', COUNT(*) FROM pages_meta;",
+  "rows": [
+    {
+      "tbl": "room_notes",
+      "cnt": "6"
+    },
+    {
+      "tbl": "rooms",
+      "cnt": "6"
+    },
+    {
+      "tbl": "extras",
+      "cnt": "12"
+    },
+    {
+      "tbl": "wellness_offerings",
+      "cnt": "10"
+    },
+    {
+      "tbl": "hotel_info",
+      "cnt": "2"
+    },
+    {
+      "tbl": "wellness_prices",
+      "cnt": "4"
+    },
+    {
+      "tbl": "wellness_hours",
+      "cnt": "14"
+    },
+    {
+      "tbl": "location_sections",
+      "cnt": "6"
+    },
+    {
+      "tbl": "pages_meta",
+      "cnt": "10"
+    }
+  ],
+  "messages": [],
+  "stdout": "tbl\tcnt\nroom_notes\t6\nrooms\t6\nextras\t12\nwellness_offerings\t10\nhotel_info\t2\nwellness_prices\t4\nwellness_hours\t14\nlocation_sections\t6\npages_meta\t10\n",
+  "stderr": "",
+  "execution_time_ms": 401
+}

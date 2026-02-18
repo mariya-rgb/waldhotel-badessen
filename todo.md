@@ -1,0 +1,28 @@
+# Waldhotel Bad Essen – Datenbank-Upgrade
+
+## Phase 1: Full-Stack Upgrade
+- [x] webdev_add_feature mit "web-db-user" ausführen
+- [x] README und Upgrade-Anleitung lesen
+
+## Phase 2: Datenbankschema
+- [x] Tabellen entwerfen: rooms, extras, wellness_offerings, wellness_hours, wellness_prices, location_sections, hotel_info, pages_meta
+- [x] SQL-Migrationen erstellen und ausführen
+
+## Phase 3: Daten einfügen
+- [x] Alle Zimmer-Daten (DE + EN) einfügen
+- [x] Extras/Zusatzleistungen einfügen
+- [x] Wellness-Daten einfügen
+- [x] Lage-Daten einfügen
+- [x] Hotel-Stammdaten einfügen
+
+## Phase 4: Backend-API
+- [x] API-Routen für alle Datentypen erstellen
+- [x] Sprachfilter (DE/EN) implementieren
+
+## Phase 5: Frontend-Anbindung
+- [x] Seiten auf API-Daten umstellen
+- [x] Loading-States und Fehlerbehandlung
+
+## Phase 6: Testen & Checkpoint
+- [x] Alle Seiten testen
+- [x] Checkpoint speichern

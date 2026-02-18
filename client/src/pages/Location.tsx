@@ -1,17 +1,20 @@
 /*
  * Waldhotel Bad Essen – Lage & Umgebung
  * Design: "Waldstille" – Nature imagery, Google Maps with consent
+ * Data loaded from database via tRPC, with i18n fallback
  */
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCookieConsent } from '@/contexts/CookieContext';
 import { IMAGES } from '@/lib/images';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useLocationSections } from '@/hooks/useHotelData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import HeroSection from '@/components/HeroSection';
-import { TreePine, Landmark, Heart, MapPin, Navigation } from 'lucide-react';
+import { TreePine, Landmark, Heart, MapPin, Navigation, Loader2 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal();
@@ -28,6 +31,12 @@ function RevealSection({ children, className = '', delay = 0 }: { children: Reac
   );
 }
 
+const sectionIcons: Record<string, LucideIcon> = {
+  nature: TreePine,
+  culture: Landmark,
+  health: Heart,
+};
+
 export default function Location() {
   const { lang, t } = useLanguage();
   const { consent } = useCookieConsent();
@@ -35,20 +44,21 @@ export default function Location() {
 
   const canLoadMap = consent?.functional || mapLoaded;
 
-  const sections = [
-    {
-      icon: TreePine,
-      ...t.locationPage.nature,
-    },
-    {
-      icon: Landmark,
-      ...t.locationPage.culture,
-    },
-    {
-      icon: Heart,
-      ...t.locationPage.health,
-    },
-  ];
+  // Fetch data from database
+  const { data: dbSections, isLoading: sectionsLoading } = useLocationSections(lang);
+
+  // Use DB data or fall back to i18n
+  const sections = dbSections && dbSections.length > 0
+    ? dbSections.map(s => ({
+        icon: sectionIcons[s.slug] || TreePine,
+        title: s.title,
+        items: s.items ? JSON.parse(s.items) as string[] : [],
+      }))
+    : [
+        { icon: TreePine, ...t.locationPage.nature },
+        { icon: Landmark, ...t.locationPage.culture },
+        { icon: Heart, ...t.locationPage.health },
+      ];
 
   return (
     <div className="min-h-screen">
@@ -75,29 +85,35 @@ export default function Location() {
       {/* Sections Grid */}
       <section className="pb-20 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {sections.map((section, i) => {
-              const Icon = section.icon;
-              return (
-                <RevealSection key={section.title} delay={i * 150}>
-                  <div className="bg-[#F7F5F0] p-8 rounded-[3px] h-full">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5">
-                      <Icon className="w-5 h-5 text-[#28863E]" />
+          {sectionsLoading ? (
+            <div className="flex justify-center py-16">
+              <Loader2 className="w-8 h-8 animate-spin text-[#C8A96E]" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {sections.map((section, i) => {
+                const Icon = section.icon;
+                return (
+                  <RevealSection key={section.title} delay={i * 150}>
+                    <div className="bg-[#F7F5F0] p-8 rounded-[3px] h-full">
+                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5">
+                        <Icon className="w-5 h-5 text-[#28863E]" />
+                      </div>
+                      <h3 className="font-heading text-xl text-[#253541] mb-4">{section.title}</h3>
+                      <ul className="space-y-3">
+                        {section.items.map((item, j) => (
+                          <li key={j} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#C8A96E] mt-2 flex-shrink-0" />
+                            <span className="text-sm text-[#253541]/70 leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h3 className="font-heading text-xl text-[#253541] mb-4">{section.title}</h3>
-                    <ul className="space-y-3">
-                      {section.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#C8A96E] mt-2 flex-shrink-0" />
-                          <span className="text-sm text-[#253541]/70 leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </RevealSection>
-              );
-            })}
-          </div>
+                  </RevealSection>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 

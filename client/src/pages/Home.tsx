@@ -2,11 +2,13 @@
  * Waldhotel Bad Essen – Startseite
  * Design: "Waldstille" – Japandi Minimalism
  * Asymmetrische Balance, extreme Weißräume, natürliche Materialehrlichkeit
+ * Data loaded from database via tRPC, with i18n fallback
  */
 import { Link } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { IMAGES } from '@/lib/images';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useHotelInfo } from '@/hooks/useHotelData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
@@ -36,6 +38,19 @@ export default function Home() {
   const wellnessUrl = lang === 'de' ? '/wellness' : '/en/wellness';
   const locationUrl = lang === 'de' ? '/bad-essen' : '/en/location';
 
+  // Fetch hotel info from database
+  const { data: dbInfo } = useHotelInfo(lang);
+
+  // Use DB data with i18n fallback
+  const heroTitle = dbInfo?.heroTitle || t.hero.title;
+  const heroSubtitle = dbInfo?.heroSubtitle || t.hero.subtitle;
+  const heroCta = dbInfo?.heroCta || t.hero.cta;
+  const aboutLabel = dbInfo?.aboutLabel || t.hotel.label;
+  const aboutTitle = dbInfo?.aboutTitle || t.hotel.title;
+  const aboutText1 = dbInfo?.aboutText1 || t.hotel.text1;
+  const aboutText2 = dbInfo?.aboutText2 || t.hotel.text2;
+  const aboutCta = dbInfo?.aboutCta || t.hotel.cta;
+
   return (
     <div className="min-h-screen">
       <JsonLd />
@@ -54,16 +69,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="relative h-full flex flex-col justify-end pb-20 md:pb-32 container">
           <div className="max-w-2xl">
-            <p className="subtitle-caps text-white/80 mb-4">{t.hero.subtitle}</p>
+            <p className="subtitle-caps text-white/80 mb-4">{heroSubtitle}</p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-[56px] text-white font-light tracking-wide leading-[1.1]">
-              {t.hero.title}
+              {heroTitle}
             </h1>
             <div className="gold-line mt-8 mb-8" />
             <Link
               href={bookUrl}
               className="inline-flex items-center gap-2 bg-[#28863E] text-white px-7 py-3.5 text-sm tracking-wide rounded-[3.5px] hover:bg-[#1f6d32] transition-all duration-300 group"
             >
-              {t.hero.cta}
+              {heroCta}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
@@ -85,22 +100,22 @@ export default function Home() {
               </div>
             </RevealSection>
             <RevealSection className="lg:col-span-7 lg:pl-8" delay={200}>
-              <p className="subtitle-caps mb-4">{t.hotel.label}</p>
+              <p className="subtitle-caps mb-4">{aboutLabel}</p>
               <h2 className="font-heading text-[28px] md:text-[34px] text-[#253541] font-light leading-tight mb-6">
-                {t.hotel.title}
+                {aboutTitle}
               </h2>
               <div className="gold-line mb-8" />
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-4">
-                {t.hotel.text1}
+                {aboutText1}
               </p>
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
-                {t.hotel.text2}
+                {aboutText2}
               </p>
               <Link
                 href={roomsUrl}
                 className="inline-flex items-center gap-2 text-[#28863E] text-sm tracking-wide hover:text-[#1f6d32] transition-colors duration-300 group"
               >
-                {t.hotel.cta}
+                {aboutCta}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </RevealSection>
@@ -200,15 +215,15 @@ export default function Home() {
           <RevealSection className="mt-16 text-center" delay={200}>
             <p className="text-sm text-[#253541]/50 mb-6">{t.booking.also}</p>
             <div className="flex flex-wrap justify-center items-center gap-8">
-              <a href="https://www.booking.com/hotel/de/mullers-im-waldquartier.de.html" target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
+              <a href={dbInfo?.bookingComUrl || "https://www.booking.com/hotel/de/mullers-im-waldquartier.de.html"} target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
                 Booking.com
               </a>
               <span className="text-[#C8A96E]">|</span>
-              <a href="https://www.tripadvisor.com/HotelHighlight-g644182-d24009515" target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
+              <a href={dbInfo?.tripadvisorUrl || "https://www.tripadvisor.com/HotelHighlight-g644182-d24009515"} target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
                 Tripadvisor
               </a>
               <span className="text-[#C8A96E]">|</span>
-              <a href="https://www.agoda.com/de-de/hotel-mullers-im-waldquartier/hotel/all/bad-essen-de.html" target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
+              <a href={dbInfo?.agodaUrl || "https://www.agoda.com/de-de/hotel-mullers-im-waldquartier/hotel/all/bad-essen-de.html"} target="_blank" rel="noopener noreferrer" className="text-[#253541]/40 hover:text-[#253541]/70 transition-colors duration-300 text-sm font-medium tracking-wide">
                 Agoda
               </a>
             </div>

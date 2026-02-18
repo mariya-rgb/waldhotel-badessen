@@ -1,16 +1,19 @@
 /*
  * Waldhotel Bad Essen – Waldsauna & Wellness
  * Design: "Waldstille" – Warm tones, nature imagery, clean tables
+ * Data loaded from database via tRPC, with i18n fallback
  */
 import { Link } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { IMAGES } from '@/lib/images';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useWellnessOfferings, useWellnessHours, useWellnessPrices } from '@/hooks/useHotelData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import HeroSection from '@/components/HeroSection';
-import { ArrowRight, Phone, Mail, Globe, Flame, Droplets, Wind, Snowflake, TreePine } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Globe, Flame, Droplets, Wind, Snowflake, TreePine, Loader2 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal();
@@ -27,11 +30,47 @@ function RevealSection({ children, className = '', delay = 0 }: { children: Reac
   );
 }
 
-const saunaIcons = [Flame, Flame, Droplets, Snowflake, TreePine];
+// Map icon names from DB to Lucide icons
+const iconMap: Record<string, LucideIcon> = {
+  thermometer: Flame,
+  flame: Flame,
+  cloud: Wind,
+  droplets: Droplets,
+  snowflake: Snowflake,
+  trees: TreePine,
+};
+
+const defaultIcons = [Flame, Flame, Droplets, Snowflake, TreePine];
 
 export default function Wellness() {
   const { lang, t } = useLanguage();
   const bookUrl = lang === 'de' ? '/buchen' : '/en/book';
+
+  // Fetch data from database
+  const { data: dbOfferings, isLoading: offeringsLoading } = useWellnessOfferings(lang);
+  const { data: dbHours, isLoading: hoursLoading } = useWellnessHours(lang);
+  const { data: dbPrices, isLoading: pricesLoading } = useWellnessPrices(lang);
+
+  // Use DB data or fall back to i18n
+  const offerings = dbOfferings && dbOfferings.length > 0
+    ? dbOfferings.map((o, i) => ({
+        title: o.title,
+        desc: o.description || '',
+        icon: o.iconName ? (iconMap[o.iconName] || defaultIcons[i] || Flame) : (defaultIcons[i] || Flame),
+      }))
+    : t.wellnessPage.offerings.map((o, i) => ({
+        title: o.title,
+        desc: o.desc,
+        icon: defaultIcons[i] || Flame,
+      }));
+
+  const hours = dbHours && dbHours.length > 0
+    ? dbHours.map(h => ({ day: h.dayName, time: h.timeRange, note: h.note || '–' }))
+    : t.wellnessPage.hours;
+
+  const prices = dbPrices && dbPrices.length > 0
+    ? dbPrices.map(p => `${p.label}: ${p.price}`)
+    : [t.wellnessPage.priceGuest, t.wellnessPage.priceExternal];
 
   return (
     <div className="min-h-screen">
@@ -58,22 +97,28 @@ export default function Wellness() {
       {/* Sauna Offerings Grid */}
       <section className="pb-20 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {t.wellnessPage.offerings.map((offering, i) => {
-              const Icon = saunaIcons[i];
-              return (
-                <RevealSection key={offering.title} delay={i * 100}>
-                  <div className="bg-[#F7F5F0] p-8 rounded-[3px] hover:shadow-md transition-all duration-500 hover:-translate-y-1 group">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 group-hover:bg-[#28863E]/10 transition-colors duration-500">
-                      <Icon className="w-5 h-5 text-[#28863E]" />
+          {offeringsLoading ? (
+            <div className="flex justify-center py-16">
+              <Loader2 className="w-8 h-8 animate-spin text-[#C8A96E]" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {offerings.map((offering, i) => {
+                const Icon = offering.icon;
+                return (
+                  <RevealSection key={offering.title} delay={i * 100}>
+                    <div className="bg-[#F7F5F0] p-8 rounded-[3px] hover:shadow-md transition-all duration-500 hover:-translate-y-1 group">
+                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 group-hover:bg-[#28863E]/10 transition-colors duration-500">
+                        <Icon className="w-5 h-5 text-[#28863E]" />
+                      </div>
+                      <h3 className="font-heading text-lg text-[#253541] mb-2">{offering.title}</h3>
+                      <p className="text-sm text-[#253541]/60 leading-relaxed">{offering.desc}</p>
                     </div>
-                    <h3 className="font-heading text-lg text-[#253541] mb-2">{offering.title}</h3>
-                    <p className="text-sm text-[#253541]/60 leading-relaxed">{offering.desc}</p>
-                  </div>
-                </RevealSection>
-              );
-            })}
-          </div>
+                  </RevealSection>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -87,19 +132,25 @@ export default function Wellness() {
                 {t.wellnessPage.hoursTitle}
               </h2>
               <div className="gold-line mb-8" />
-              <div className="bg-white rounded-[3px] overflow-hidden shadow-sm">
-                <table className="w-full">
-                  <tbody>
-                    {t.wellnessPage.hours.map((row, i) => (
-                      <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#F7F5F0]/50'}`}>
-                        <td className="px-5 py-3.5 text-sm text-[#253541] font-medium">{row.day}</td>
-                        <td className="px-5 py-3.5 text-sm text-[#253541]/70">{row.time}</td>
-                        <td className="px-5 py-3.5 text-sm text-[#C8A96E] italic">{row.note !== '–' ? row.note : ''}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {hoursLoading ? (
+                <div className="flex justify-center py-8">
+                  <Loader2 className="w-6 h-6 animate-spin text-[#C8A96E]" />
+                </div>
+              ) : (
+                <div className="bg-white rounded-[3px] overflow-hidden shadow-sm">
+                  <table className="w-full">
+                    <tbody>
+                      {hours.map((row, i) => (
+                        <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#F7F5F0]/50'}`}>
+                          <td className="px-5 py-3.5 text-sm text-[#253541] font-medium">{row.day}</td>
+                          <td className="px-5 py-3.5 text-sm text-[#253541]/70">{row.time}</td>
+                          <td className="px-5 py-3.5 text-sm text-[#C8A96E] italic">{row.note !== '–' ? row.note : ''}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </RevealSection>
 
             {/* Prices & Contact */}
@@ -109,8 +160,9 @@ export default function Wellness() {
               </h2>
               <div className="gold-line mb-8" />
               <div className="space-y-3 mb-12">
-                <p className="text-base text-[#253541]/80">{t.wellnessPage.priceGuest}</p>
-                <p className="text-base text-[#253541]/80">{t.wellnessPage.priceExternal}</p>
+                {prices.map((price, i) => (
+                  <p key={i} className="text-base text-[#253541]/80">{price}</p>
+                ))}
               </div>
 
               <h3 className="font-heading text-xl text-[#253541] mb-6">
