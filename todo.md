@@ -56,3 +56,10 @@
 
 ## USt-IdNr. aktualisieren
 - [x] USt-IdNr. DE457980375 im Impressum eingetragen
+## Wellness-Seite überarbeiten
+- [x] 3 echte Wellness-Fotos auf CDN hochladen (Sauna, Lounge, Tauchbecken)
+- [x] Dampfbad aus Wellness-Angeboten entfernen (DB + i18n + Frontend)
+- [x] Öffnungszeiten korrigieren: Fr 16-21 Uhr, So 13-20 Uhr, Damensauna/Gruppen auf Anfrage
+- [x] Falsche Sauna-Kontaktdaten durch Hotel-Kontaktdaten ersetzen
+- [x] KI-generierte Wellness-Bilder durch echte ersetzen
+- [x] Testen und Checkpoint erstellen (alle 20 Tests bestanden)

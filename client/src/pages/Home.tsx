@@ -147,7 +147,7 @@ export default function Home() {
             <RevealSection className="lg:col-span-5 order-1 lg:order-2">
               <div className="relative overflow-hidden">
                 <img
-                  src={IMAGES.wellness}
+                  src={IMAGES.wellnessSauna}
                   alt={lang === 'de' ? 'Waldsauna Bad Essen – Saunalandschaft' : 'Forest Sauna Bad Essen – Sauna landscape'}
                   className="w-full h-[400px] lg:h-[520px] object-cover"
                   loading="lazy"

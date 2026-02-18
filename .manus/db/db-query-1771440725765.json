@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO wellness_hours (lang, dayName, timeRange, note, dayIndex) VALUES\n('de', 'Freitag', '16:00 – 21:00 Uhr', '-', 4),\n('de', 'Sonntag', '13:00 – 20:00 Uhr', '-', 6),\n('de', 'Damensauna', 'Auf Anfrage', '-', 7),\n('de', 'Gruppen', 'Auf Anfrage', '-', 8);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute INSERT INTO wellness_hours (lang, dayName, timeRange, note, dayIndex) VALUES\n('de', 'Freitag', '16:00 – 21:00 Uhr', '-', 4),\n('de', 'Sonntag', '13:00 – 20:00 Uhr', '-', 6),\n('de', 'Damensauna', 'Auf Anfrage', '-', 7),\n('de', 'Gruppen', 'Auf Anfrage', '-', 8);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 372
+}

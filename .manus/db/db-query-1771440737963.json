@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE wellness_offerings SET sortOrder = 3 WHERE title = 'Tauchbecken';\nUPDATE wellness_offerings SET sortOrder = 4 WHERE title = 'Außen-Sauna';\nUPDATE wellness_offerings SET sortOrder = 3 WHERE title = 'Plunge Pool';\nUPDATE wellness_offerings SET sortOrder = 4 WHERE title = 'Outdoor Sauna';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute UPDATE wellness_offerings SET sortOrder = 3 WHERE title = 'Tauchbecken';\nUPDATE wellness_offerings SET sortOrder = 4 WHERE title = 'Außen-Sauna';\nUPDATE wellness_offerings SET sortOrder = 3 WHERE title = 'Plunge Pool';\nUPDATE wellness_offerings SET sortOrder = 4 WHERE title = 'Outdoor Sauna';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 523
+}

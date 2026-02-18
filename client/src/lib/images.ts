@@ -22,6 +22,11 @@ export const IMAGES = {
   logoTransparent: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/SfFSysDeiVvyhCfi.png',
   astDeko: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/jmNFTGxMISyeqMLB.webp',
 
+  // Echte Wellness-Bilder
+  wellnessSauna: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/EzWEITLDjFfZKGpZ.png',
+  wellnessLounge: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/wqKgMshCAcbnuMdl.png',
+  wellnessPool: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/ywqlJnoAhFhpNyqX.png',
+
   // Echte Zimmerbilder
   roomBathroom: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/ugbDlJMEOflWXsPa.jpg',
   roomSingle: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/BKCDGgbIaRDxbxug.jpg',

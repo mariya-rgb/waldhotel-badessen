@@ -166,14 +166,12 @@ async function seed() {
   const wellnessOfferingsData = [
     { lang: 'de', title: 'Bio-Sauna', description: 'Sanfte Wärme bei ca. 60°C', iconName: 'thermometer', sortOrder: 1 },
     { lang: 'de', title: 'Finnische Sauna', description: 'Klassisch bei ca. 90°C', iconName: 'flame', sortOrder: 2 },
-    { lang: 'de', title: 'Dampfbad', description: 'Wohltuend feucht', iconName: 'cloud', sortOrder: 3 },
-    { lang: 'de', title: 'Tauchbecken', description: 'Erfrischung nach dem Saunagang', iconName: 'droplets', sortOrder: 4 },
-    { lang: 'de', title: 'Außen-Sauna', description: 'Saunieren unter freiem Himmel im Saunagarten', iconName: 'trees', sortOrder: 5 },
+    { lang: 'de', title: 'Tauchbecken', description: 'Erfrischung nach dem Saunagang', iconName: 'droplets', sortOrder: 3 },
+    { lang: 'de', title: 'Außen-Sauna', description: 'Saunieren unter freiem Himmel im Saunagarten', iconName: 'trees', sortOrder: 4 },
     { lang: 'en', title: 'Bio Sauna', description: 'Gentle warmth at approx. 60°C', iconName: 'thermometer', sortOrder: 1 },
     { lang: 'en', title: 'Finnish Sauna', description: 'Classic at approx. 90°C', iconName: 'flame', sortOrder: 2 },
-    { lang: 'en', title: 'Steam Bath', description: 'Soothing humidity', iconName: 'cloud', sortOrder: 3 },
-    { lang: 'en', title: 'Plunge Pool', description: 'Refreshment after the sauna session', iconName: 'droplets', sortOrder: 4 },
-    { lang: 'en', title: 'Outdoor Sauna', description: 'Sauna under the open sky in the sauna garden', iconName: 'trees', sortOrder: 5 },
+    { lang: 'en', title: 'Plunge Pool', description: 'Refreshment after the sauna session', iconName: 'droplets', sortOrder: 3 },
+    { lang: 'en', title: 'Outdoor Sauna', description: 'Sauna under the open sky in the sauna garden', iconName: 'trees', sortOrder: 4 },
   ];
 
   for (const offering of wellnessOfferingsData) {
@@ -192,20 +190,14 @@ async function seed() {
   await connection.execute(`DELETE FROM wellness_hours`);
 
   const wellnessHoursData = [
-    { lang: 'de', dayName: 'Montag', timeRange: 'Geschlossen', note: '–', dayIndex: 0 },
-    { lang: 'de', dayName: 'Dienstag', timeRange: '16:00 – 22:00', note: 'Damensauna', dayIndex: 1 },
-    { lang: 'de', dayName: 'Mittwoch', timeRange: 'Geschlossen', note: '–', dayIndex: 2 },
-    { lang: 'de', dayName: 'Donnerstag', timeRange: 'Geschlossen', note: '–', dayIndex: 3 },
-    { lang: 'de', dayName: 'Freitag', timeRange: '16:00 – 22:00', note: '–', dayIndex: 4 },
-    { lang: 'de', dayName: 'Samstag', timeRange: '14:00 – 20:00', note: '–', dayIndex: 5 },
-    { lang: 'de', dayName: 'Sonntag', timeRange: '12:00 – 20:00', note: '–', dayIndex: 6 },
-    { lang: 'en', dayName: 'Monday', timeRange: 'Closed', note: '–', dayIndex: 0 },
-    { lang: 'en', dayName: 'Tuesday', timeRange: '4:00 PM – 10:00 PM', note: "Ladies' sauna", dayIndex: 1 },
-    { lang: 'en', dayName: 'Wednesday', timeRange: 'Closed', note: '–', dayIndex: 2 },
-    { lang: 'en', dayName: 'Thursday', timeRange: 'Closed', note: '–', dayIndex: 3 },
-    { lang: 'en', dayName: 'Friday', timeRange: '4:00 PM – 10:00 PM', note: '–', dayIndex: 4 },
-    { lang: 'en', dayName: 'Saturday', timeRange: '2:00 PM – 8:00 PM', note: '–', dayIndex: 5 },
-    { lang: 'en', dayName: 'Sunday', timeRange: '12:00 PM – 8:00 PM', note: '–', dayIndex: 6 },
+    { lang: 'de', dayName: 'Freitag', timeRange: '16:00 – 21:00 Uhr', note: '-', dayIndex: 4 },
+    { lang: 'de', dayName: 'Sonntag', timeRange: '13:00 – 20:00 Uhr', note: '-', dayIndex: 6 },
+    { lang: 'de', dayName: 'Damensauna', timeRange: 'Auf Anfrage', note: '-', dayIndex: 7 },
+    { lang: 'de', dayName: 'Gruppen', timeRange: 'Auf Anfrage', note: '-', dayIndex: 8 },
+    { lang: 'en', dayName: 'Friday', timeRange: '4:00 PM – 9:00 PM', note: '-', dayIndex: 4 },
+    { lang: 'en', dayName: 'Sunday', timeRange: '1:00 PM – 8:00 PM', note: '-', dayIndex: 6 },
+    { lang: 'en', dayName: "Ladies' Sauna", timeRange: 'By appointment', note: '-', dayIndex: 7 },
+    { lang: 'en', dayName: 'Groups', timeRange: 'By appointment', note: '-', dayIndex: 8 },
   ];
 
   for (const hour of wellnessHoursData) {
@@ -272,13 +264,13 @@ async function seed() {
   const pagesMetaData = [
     { lang: 'de', pageSlug: 'home', metaTitle: 'Waldhotel Bad Essen – Ihr Hotel am Wiehengebirge seit 1906', metaDescription: 'Willkommen im Waldhotel Bad Essen – historisches Fachwerkhotel am Wiehengebirge. 19 Zimmer, Waldsauna, Natur pur. Direkt buchen zum besten Preis.', heroTitle: 'Waldhotel Bad Essen', heroSubtitle: 'Seit 1906. Ankommen. Aufatmen. Aufleben.', introText: null },
     { lang: 'de', pageSlug: 'rooms', metaTitle: 'Zimmer & Suiten – Waldhotel Bad Essen', metaDescription: '19 individuell eingerichtete Zimmer mit Boxspringbetten und Blick ins Wiehengebirge. Doppelzimmer, Einzelzimmer und Waldsuiten.', heroTitle: 'Zimmer & Suiten', heroSubtitle: null, introText: 'Alle 19 Zimmer bieten Boxspringbetten, Blick ins Wiehengebirge und den Charme eines Fachwerkhauses – kombiniert mit modernem Komfort.' },
-    { lang: 'de', pageSlug: 'wellness', metaTitle: 'Waldsauna & Wellness – Waldhotel Bad Essen', metaDescription: 'Die Waldsauna Bad Essen: 500 m² Saunalandschaft mit Bio-Sauna, finnischer Sauna, Dampfbad und Außen-Sauna am Wiehengebirge.', heroTitle: 'Waldsauna & Wellness', heroSubtitle: null, introText: 'Direkt am Hotel – die Waldsauna Bad Essen. Auf über 500 m² erwartet Sie eine Saunalandschaft, die alle Sinne anspricht. Eingebettet in die Natur des Wiehengebirges.' },
+    { lang: 'de', pageSlug: 'wellness', metaTitle: 'Waldsauna & Wellness – Waldhotel Bad Essen', metaDescription: 'Die Waldsauna Bad Essen: 500 m² Saunalandschaft mit Bio-Sauna, finnischer Sauna, Tauchbecken und Außen-Sauna am Wiehengebirge.', heroTitle: 'Waldsauna & Wellness', heroSubtitle: null, introText: 'Direkt am Hotel – die Waldsauna Bad Essen. Auf über 500 m² erwartet Sie eine Saunalandschaft, die alle Sinne anspricht. Eingebettet in die Natur des Wiehengebirges.' },
     { lang: 'de', pageSlug: 'location', metaTitle: 'Lage & Umgebung – Waldhotel Bad Essen', metaDescription: 'Bad Essen – Cittàslow am Wiehengebirge. Wittekindsweg, Schloss Ippenburg, SolePark und historische Altstadt.', heroTitle: 'Lage & Umgebung', heroSubtitle: null, introText: 'Bad Essen – Cittàslow am Wiehengebirge. Wo das Leben entschleunigt und die Natur den Takt vorgibt.' },
     { lang: 'de', pageSlug: 'booking', metaTitle: 'Online buchen – Waldhotel Bad Essen', metaDescription: 'Buchen Sie Ihren Aufenthalt im Waldhotel Bad Essen direkt zum besten Preis. Online-Buchung oder telefonisch.', heroTitle: 'Direkt buchen – bester Preis garantiert', heroSubtitle: null, introText: 'Buchen Sie Ihren Aufenthalt im Waldhotel Bad Essen direkt und ohne Umwege. Wählen Sie Ihren Wunschzeitraum und Zimmertyp.' },
     // EN
     { lang: 'en', pageSlug: 'home', metaTitle: 'Waldhotel Bad Essen – Your Hotel at the Wiehengebirge since 1906', metaDescription: 'Welcome to Waldhotel Bad Essen – historic half-timbered hotel at the Wiehengebirge. 19 rooms, forest sauna, pure nature. Book directly for the best price.', heroTitle: 'Waldhotel Bad Essen', heroSubtitle: 'Since 1906. Arrive. Breathe. Revive.', introText: null },
     { lang: 'en', pageSlug: 'rooms', metaTitle: 'Rooms & Suites – Waldhotel Bad Essen', metaDescription: '19 individually designed rooms with box-spring beds and views of the Wiehengebirge. Double rooms, single rooms and forest suites.', heroTitle: 'Rooms & Suites', heroSubtitle: null, introText: 'All 19 rooms feature box-spring beds, views of the Wiehengebirge and the charm of a half-timbered house – combined with modern comfort.' },
-    { lang: 'en', pageSlug: 'wellness', metaTitle: 'Forest Sauna & Wellness – Waldhotel Bad Essen', metaDescription: 'The Forest Sauna Bad Essen: 500 m² sauna landscape with bio sauna, Finnish sauna, steam bath and outdoor sauna at the Wiehengebirge.', heroTitle: 'Forest Sauna & Wellness', heroSubtitle: null, introText: 'Right at the hotel – the Forest Sauna Bad Essen. On over 500 m², a sauna landscape that appeals to all senses awaits you. Nestled in the nature of the Wiehengebirge.' },
+    { lang: 'en', pageSlug: 'wellness', metaTitle: 'Forest Sauna & Wellness – Waldhotel Bad Essen', metaDescription: 'The Forest Sauna Bad Essen: 500 m² sauna landscape with bio sauna, Finnish sauna, plunge pool and outdoor sauna at the Wiehengebirge.', heroTitle: 'Forest Sauna & Wellness', heroSubtitle: null, introText: 'Right at the hotel – the Forest Sauna Bad Essen. On over 500 m², a sauna landscape that appeals to all senses awaits you. Nestled in the nature of the Wiehengebirge.' },
     { lang: 'en', pageSlug: 'location', metaTitle: 'Location & Surroundings – Waldhotel Bad Essen', metaDescription: 'Bad Essen – a Cittàslow town at the Wiehengebirge. Wittekindsweg trail, Ippenburg Castle, SolePark and historic old town.', heroTitle: 'Location & Surroundings', heroSubtitle: null, introText: 'Bad Essen – a Cittàslow town at the Wiehengebirge. Where life slows down and nature sets the pace.' },
     { lang: 'en', pageSlug: 'booking', metaTitle: 'Book Online – Waldhotel Bad Essen', metaDescription: 'Book your stay at the Waldhotel Bad Essen directly for the best price. Online booking or by phone.', heroTitle: 'Book Directly – Best Price Guaranteed', heroSubtitle: null, introText: 'Book your stay at the Waldhotel Bad Essen directly and without detours. Choose your preferred dates and room type.' },
   ];

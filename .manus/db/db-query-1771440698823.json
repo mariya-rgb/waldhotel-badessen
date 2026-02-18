@@ -1,0 +1,110 @@
+{
+  "query": "SELECT * FROM wellness_offerings ORDER BY lang, sortOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute SELECT * FROM wellness_offerings ORDER BY lang, sortOrder;",
+  "rows": [
+    {
+      "id": "1",
+      "lang": "de",
+      "title": "Bio-Sauna",
+      "description": "Sanfte Wärme bei ca. 60°C",
+      "iconName": "thermometer",
+      "sortOrder": "1",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "2",
+      "lang": "de",
+      "title": "Finnische Sauna",
+      "description": "Klassisch bei ca. 90°C",
+      "iconName": "flame",
+      "sortOrder": "2",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "3",
+      "lang": "de",
+      "title": "Dampfbad",
+      "description": "Wohltuend feucht",
+      "iconName": "cloud",
+      "sortOrder": "3",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "4",
+      "lang": "de",
+      "title": "Tauchbecken",
+      "description": "Erfrischung nach dem Saunagang",
+      "iconName": "droplets",
+      "sortOrder": "4",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "5",
+      "lang": "de",
+      "title": "Außen-Sauna",
+      "description": "Saunieren unter freiem Himmel im Saunagarten",
+      "iconName": "trees",
+      "sortOrder": "5",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "6",
+      "lang": "en",
+      "title": "Bio Sauna",
+      "description": "Gentle warmth at approx. 60°C",
+      "iconName": "thermometer",
+      "sortOrder": "1",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "7",
+      "lang": "en",
+      "title": "Finnish Sauna",
+      "description": "Classic at approx. 90°C",
+      "iconName": "flame",
+      "sortOrder": "2",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "8",
+      "lang": "en",
+      "title": "Steam Bath",
+      "description": "Soothing humidity",
+      "iconName": "cloud",
+      "sortOrder": "3",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "9",
+      "lang": "en",
+      "title": "Plunge Pool",
+      "description": "Refreshment after the sauna session",
+      "iconName": "droplets",
+      "sortOrder": "4",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    },
+    {
+      "id": "10",
+      "lang": "en",
+      "title": "Outdoor Sauna",
+      "description": "Sauna under the open sky in the sauna garden",
+      "iconName": "trees",
+      "sortOrder": "5",
+      "createdAt": "2026-02-18 13:49:11",
+      "updatedAt": "2026-02-18 13:49:11"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tlang\ttitle\tdescription\ticonName\tsortOrder\tcreatedAt\tupdatedAt\n1\tde\tBio-Sauna\tSanfte Wärme bei ca. 60°C\tthermometer\t1\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n2\tde\tFinnische Sauna\tKlassisch bei ca. 90°C\tflame\t2\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n3\tde\tDampfbad\tWohltuend feucht\tcloud\t3\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n4\tde\tTauchbecken\tErfrischung nach dem Saunagang\tdroplets\t4\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n5\tde\tAußen-Sauna\tSaunieren unter freiem Himmel im Saunagarten\ttrees\t5\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n6\ten\tBio Sauna\tGentle warmth at approx. 60°C\tthermometer\t1\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n7\ten\tFinnish Sauna\tClassic at approx. 90°C\tflame\t2\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n8\ten\tSteam Bath\tSoothing humidity\tcloud\t3\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n9\ten\tPlunge Pool\tRefreshment after the sauna session\tdroplets\t4\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n10\ten\tOutdoor Sauna\tSauna under the open sky in the sauna garden\ttrees\t5\t2026-02-18 13:49:11\t2026-02-18 13:49:11\n",
+  "stderr": "",
+  "execution_time_ms": 357
+}

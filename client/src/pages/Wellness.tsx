@@ -12,7 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import HeroSection from '@/components/HeroSection';
-import { ArrowRight, Phone, Mail, Globe, Flame, Droplets, Wind, Snowflake, TreePine, Loader2 } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Flame, Droplets, Snowflake, TreePine, Loader2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -34,13 +34,12 @@ function RevealSection({ children, className = '', delay = 0 }: { children: Reac
 const iconMap: Record<string, LucideIcon> = {
   thermometer: Flame,
   flame: Flame,
-  cloud: Wind,
   droplets: Droplets,
   snowflake: Snowflake,
   trees: TreePine,
 };
 
-const defaultIcons = [Flame, Flame, Droplets, Snowflake, TreePine];
+const defaultIcons = [Flame, Flame, Droplets, TreePine];
 
 export default function Wellness() {
   const { lang, t } = useLanguage();
@@ -72,11 +71,36 @@ export default function Wellness() {
     ? dbPrices.map(p => `${p.label}: ${p.price}`)
     : [t.wellnessPage.priceGuest, t.wellnessPage.priceExternal];
 
+  // Wellness photo gallery data
+  const wellnessPhotos = [
+    {
+      src: IMAGES.wellnessSauna,
+      altDe: 'Sauna mit Panoramafenster und Blick auf die verschneite Winterlandschaft',
+      altEn: 'Sauna with panoramic window overlooking the snowy winter landscape',
+      captionDe: 'Finnische Sauna mit Waldblick',
+      captionEn: 'Finnish Sauna with forest view',
+    },
+    {
+      src: IMAGES.wellnessLounge,
+      altDe: 'Gemütlicher Ruheraum mit Birken-Tapete und Winterblick',
+      altEn: 'Cozy relaxation lounge with birch wallpaper and winter view',
+      captionDe: 'Ruheraum & Lounge',
+      captionEn: 'Relaxation Lounge',
+    },
+    {
+      src: IMAGES.wellnessPool,
+      altDe: 'Tauchbecken mit weißen Fliesen zur Erfrischung nach dem Saunagang',
+      altEn: 'Plunge pool with white tiles for refreshment after the sauna',
+      captionDe: 'Tauchbecken',
+      captionEn: 'Plunge Pool',
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
       <HeroSection
-        image={IMAGES.wellness}
+        image={IMAGES.wellnessSauna}
         title={t.wellnessPage.heroTitle}
         alt={lang === 'de' ? 'Waldsauna Bad Essen' : 'Forest Sauna Bad Essen'}
         height="h-[60vh] min-h-[400px]"
@@ -94,6 +118,30 @@ export default function Wellness() {
         </div>
       </section>
 
+      {/* Photo Gallery */}
+      <section className="pb-16 bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {wellnessPhotos.map((photo, i) => (
+              <RevealSection key={i} delay={i * 150}>
+                <div className="relative overflow-hidden group">
+                  <img
+                    src={photo.src}
+                    alt={lang === 'de' ? photo.altDe : photo.altEn}
+                    className="w-full h-[280px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <p className="absolute bottom-4 left-4 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                    {lang === 'de' ? photo.captionDe : photo.captionEn}
+                  </p>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sauna Offerings Grid */}
       <section className="pb-20 bg-white">
         <div className="container">
@@ -102,7 +150,7 @@ export default function Wellness() {
               <Loader2 className="w-8 h-8 animate-spin text-[#C8A96E]" />
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {offerings.map((offering, i) => {
                 const Icon = offering.icon;
                 return (
@@ -144,7 +192,7 @@ export default function Wellness() {
                         <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#F7F5F0]/50'}`}>
                           <td className="px-5 py-3.5 text-sm text-[#253541] font-medium">{row.day}</td>
                           <td className="px-5 py-3.5 text-sm text-[#253541]/70">{row.time}</td>
-                          <td className="px-5 py-3.5 text-sm text-[#C8A96E] italic">{row.note !== '–' ? row.note : ''}</td>
+                          <td className="px-5 py-3.5 text-sm text-[#C8A96E] italic">{row.note !== '–' && row.note !== '-' ? row.note : ''}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -169,17 +217,13 @@ export default function Wellness() {
                 {t.wellnessPage.contactTitle}
               </h3>
               <div className="space-y-4">
-                <a href={`tel:${t.wellnessPage.contactPhone}`} className="flex items-center gap-3 text-sm text-[#253541]/80 hover:text-[#28863E] transition-colors duration-300">
+                <a href="tel:+4917632419623" className="flex items-center gap-3 text-sm text-[#253541]/80 hover:text-[#28863E] transition-colors duration-300">
                   <Phone className="w-4 h-4 text-[#C8A96E]" />
-                  {t.wellnessPage.contactPhone}
+                  +49 176 3241 9623
                 </a>
-                <a href={`mailto:${t.wellnessPage.contactEmail}`} className="flex items-center gap-3 text-sm text-[#253541]/80 hover:text-[#28863E] transition-colors duration-300">
+                <a href="mailto:kontakt@waldhotel-badessen.de" className="flex items-center gap-3 text-sm text-[#253541]/80 hover:text-[#28863E] transition-colors duration-300">
                   <Mail className="w-4 h-4 text-[#C8A96E]" />
-                  {t.wellnessPage.contactEmail}
-                </a>
-                <a href="https://waldsauna-badessen.de" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-[#253541]/80 hover:text-[#28863E] transition-colors duration-300">
-                  <Globe className="w-4 h-4 text-[#C8A96E]" />
-                  {t.wellnessPage.contactWeb}
+                  kontakt@waldhotel-badessen.de
                 </a>
               </div>
             </RevealSection>

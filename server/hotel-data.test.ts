@@ -86,10 +86,14 @@ describe("hotel data API", () => {
     it("returns wellness offerings for German", async () => {
       const result = await caller.wellness.offerings({ lang: "de" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBeGreaterThanOrEqual(5);
+      expect(result.length).toBeGreaterThanOrEqual(4);
       const titles = result.map(o => o.title);
       expect(titles).toContain("Bio-Sauna");
       expect(titles).toContain("Finnische Sauna");
+      expect(titles).toContain("Tauchbecken");
+      expect(titles).toContain("Au\u00dfen-Sauna");
+      // Dampfbad should NOT be in the list
+      expect(titles).not.toContain("Dampfbad");
     });
   });
 
@@ -97,10 +101,15 @@ describe("hotel data API", () => {
     it("returns opening hours for German", async () => {
       const result = await caller.wellness.hours({ lang: "de" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBe(7); // 7 days
-      // Monday should be closed
-      const monday = result.find(h => h.dayName === "Montag");
-      expect(monday?.timeRange).toBe("Geschlossen");
+      expect(result.length).toBe(4); // Freitag, Sonntag, Damensauna, Gruppen
+      const friday = result.find(h => h.dayName === "Freitag");
+      expect(friday?.timeRange).toContain("16:00");
+      expect(friday?.timeRange).toContain("21:00");
+      const sunday = result.find(h => h.dayName === "Sonntag");
+      expect(sunday?.timeRange).toContain("13:00");
+      expect(sunday?.timeRange).toContain("20:00");
+      const damen = result.find(h => h.dayName === "Damensauna");
+      expect(damen?.timeRange).toBe("Auf Anfrage");
     });
   });
 

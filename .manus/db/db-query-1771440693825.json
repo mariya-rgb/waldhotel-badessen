@@ -1,0 +1,80 @@
+{
+  "query": "SELECT id, lang, title, iconName, sortOrder FROM wellness_offerings ORDER BY lang, sortOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute SELECT id, lang, title, iconName, sortOrder FROM wellness_offerings ORDER BY lang, sortOrder;",
+  "rows": [
+    {
+      "id": "1",
+      "lang": "de",
+      "title": "Bio-Sauna",
+      "iconName": "thermometer",
+      "sortOrder": "1"
+    },
+    {
+      "id": "2",
+      "lang": "de",
+      "title": "Finnische Sauna",
+      "iconName": "flame",
+      "sortOrder": "2"
+    },
+    {
+      "id": "3",
+      "lang": "de",
+      "title": "Dampfbad",
+      "iconName": "cloud",
+      "sortOrder": "3"
+    },
+    {
+      "id": "4",
+      "lang": "de",
+      "title": "Tauchbecken",
+      "iconName": "droplets",
+      "sortOrder": "4"
+    },
+    {
+      "id": "5",
+      "lang": "de",
+      "title": "Außen-Sauna",
+      "iconName": "trees",
+      "sortOrder": "5"
+    },
+    {
+      "id": "6",
+      "lang": "en",
+      "title": "Bio Sauna",
+      "iconName": "thermometer",
+      "sortOrder": "1"
+    },
+    {
+      "id": "7",
+      "lang": "en",
+      "title": "Finnish Sauna",
+      "iconName": "flame",
+      "sortOrder": "2"
+    },
+    {
+      "id": "8",
+      "lang": "en",
+      "title": "Steam Bath",
+      "iconName": "cloud",
+      "sortOrder": "3"
+    },
+    {
+      "id": "9",
+      "lang": "en",
+      "title": "Plunge Pool",
+      "iconName": "droplets",
+      "sortOrder": "4"
+    },
+    {
+      "id": "10",
+      "lang": "en",
+      "title": "Outdoor Sauna",
+      "iconName": "trees",
+      "sortOrder": "5"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tlang\ttitle\ticonName\tsortOrder\n1\tde\tBio-Sauna\tthermometer\t1\n2\tde\tFinnische Sauna\tflame\t2\n3\tde\tDampfbad\tcloud\t3\n4\tde\tTauchbecken\tdroplets\t4\n5\tde\tAußen-Sauna\ttrees\t5\n6\ten\tBio Sauna\tthermometer\t1\n7\ten\tFinnish Sauna\tflame\t2\n8\ten\tSteam Bath\tcloud\t3\n9\ten\tPlunge Pool\tdroplets\t4\n10\ten\tOutdoor Sauna\ttrees\t5\n",
+  "stderr": "",
+  "execution_time_ms": 347
+}

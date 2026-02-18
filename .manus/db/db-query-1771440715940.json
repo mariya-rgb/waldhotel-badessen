@@ -1,0 +1,9 @@
+{
+  "query": "DELETE FROM wellness_offerings WHERE title = 'Dampfbad' OR title = 'Steam Bath';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute DELETE FROM wellness_offerings WHERE title = 'Dampfbad' OR title = 'Steam Bath';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 355
+}
