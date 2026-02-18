@@ -93,7 +93,7 @@ export default function Header() {
         {/* Right side: Language + CTA + Phone */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:+4954729584303"
+            href="tel:+4917632419623"
             className={`flex items-center gap-1.5 text-sm transition-colors duration-300 hover:text-[#C8A96E] ${textColor}`}
             aria-label={lang === 'de' ? 'Anrufen' : 'Call us'}
           >

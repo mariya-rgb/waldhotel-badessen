@@ -46,7 +46,7 @@ export const translations = {
     },
     footer: {
       address: 'Bergstraße 51, 49152 Bad Essen',
-      phone: '05472 – 95 84 303',
+      phone: '+49 176 3241 9623',
       email: 'kontakt@waldhotel-badessen.de',
       legal: 'Rechtliches',
       imprint: 'Impressum',
@@ -212,7 +212,7 @@ export const translations = {
     },
     footer: {
       address: 'Bergstraße 51, 49152 Bad Essen',
-      phone: '+49 5472 – 95 84 303',
+      phone: '+49 176 3241 9623',
       email: 'kontakt@waldhotel-badessen.de',
       legal: 'Legal',
       imprint: 'Imprint',

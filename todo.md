@@ -39,3 +39,7 @@
 - [x] Hotel-Sektion Bild aktualisieren
 - [x] Lage-Seite Natur-Bild aktualisieren
 - [x] Website testen und Checkpoint erstellen
+
+## Bugfixes
+- [x] Scroll-to-top beim Seitenwechsel implementieren (Seite lädt von unten nach oben)
+- [x] Telefonnummer überall auf +4917632419623 ändern (Header, Footer, Buchungsseite, i18n, Impressum, Datenschutz, JsonLd, Seed-Script, Datenbank)

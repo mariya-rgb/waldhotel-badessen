@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { CookieProvider } from "./contexts/CookieContext";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import Wellness from "./pages/Wellness";
@@ -22,11 +23,12 @@ function EnLocation() { return <Location />; }
 function EnBooking() { return <Booking />; }
 function EnImprint() { return <Impressum />; }
 function EnPrivacy() { return <Datenschutz />; }
+
 function DeRouter() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <LanguageProvider initialLang="de">
       <CookieProvider>
+        <ScrollToTop />
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/zimmer" component={Rooms} />
@@ -47,6 +49,7 @@ function EnRouter() {
   return (
     <LanguageProvider initialLang="en">
       <CookieProvider>
+        <ScrollToTop />
         <Switch>
           <Route path="/en" component={EnHome} />
           <Route path="/en/rooms" component={EnRooms} />
@@ -63,7 +66,6 @@ function EnRouter() {
 }
 
 function Router() {
-  // Check if current path starts with /en
   const isEnglish = window.location.pathname.startsWith('/en');
   
   if (isEnglish) {

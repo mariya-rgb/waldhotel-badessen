@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE hotel_info SET phone = '+49 176 3241 9623' WHERE lang IN ('de', 'en');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute UPDATE hotel_info SET phone = '+49 176 3241 9623' WHERE lang IN ('de', 'en');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 355
+}

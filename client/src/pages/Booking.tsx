@@ -78,8 +78,8 @@ export default function Booking() {
                 <p className="text-base text-[#253541]/80">
                   {t.bookingPage.phone}
                 </p>
-                <a href="tel:+4954729584303" className="text-lg font-heading text-[#253541] hover:text-[#28863E] transition-colors duration-300">
-                  05472 – 95 84 303
+                <a href="tel:+4917632419623" className="text-lg font-heading text-[#253541] hover:text-[#28863E] transition-colors duration-300">
+                  +49 176 3241 9623
                 </a>
               </div>
               <div className="gold-line mx-auto" />

@@ -43,7 +43,7 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#C8A96E]" />
                 <span>{t.footer.address}</span>
               </a>
-              <a href="tel:+4954729584303" className="flex items-center gap-3 text-sm hover:text-[#C8A96E] transition-colors duration-300">
+              <a href="tel:+4917632419623" className="flex items-center gap-3 text-sm hover:text-[#C8A96E] transition-colors duration-300">
                 <Phone className="w-4 h-4 flex-shrink-0 text-[#C8A96E]" />
                 <span>{t.footer.phone}</span>
               </a>

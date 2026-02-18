@@ -50,7 +50,7 @@ export default function Impressum() {
               <div>
                 <h2 className="font-heading text-xl text-[#253541] mb-3">Kontakt</h2>
                 <p>
-                  Telefon: 05472 – 95 84 303<br />
+                  Telefon: +49 176 3241 9623<br />
                   E-Mail: kontakt@waldhotel-badessen.de
                 </p>
               </div>

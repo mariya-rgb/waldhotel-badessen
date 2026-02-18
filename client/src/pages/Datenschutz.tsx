@@ -44,7 +44,7 @@ export default function Datenschutz() {
                   Geschäftsführerin: Mariya Düselder<br />
                   Bergstraße 51<br />
                   49152 Bad Essen<br />
-                  Telefon: 05472 – 95 84 303<br />
+                  Telefon: +49 176 3241 9623<br />
                   E-Mail: kontakt@waldhotel-badessen.de
                 </p>
               </div>
