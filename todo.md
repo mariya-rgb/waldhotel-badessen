@@ -86,3 +86,13 @@
 - [x] Wald-Auszeit Landingpage ebenfalls mit Hochkant-Fotos und starken Überschriften aufwerten
 - [x] Tests aktualisieren und alle Tests bestehen lassen (32/32 bestanden)
 - [x] Checkpoint speichern
+
+## Wald-Auszeit Galerie erweitern + Romantik-Auszeit erstellen
+- [x] 4 echte Frühstücksfotos auf CDN hochladen
+- [x] Wald-Auszeit Galerie in DB mit Frühstücks- und Zimmerfotos erweitern (7 Bilder)
+- [x] Hochkant-Fotos für Romantik-Auszeit generieren (4 Stück)
+- [x] Content für "Romantik-Auszeit im Waldzimmer" texten (49€/Nacht/Zimmer)
+- [x] Romantik-Auszeit in DB einfügen (DE + EN)
+- [x] images.ts mit neuen Bildern aktualisieren
+- [x] Tests aktualisieren und alle Tests bestehen lassen (35/35 bestanden)
+- [x] Checkpoint speichern

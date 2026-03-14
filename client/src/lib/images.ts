@@ -34,9 +34,21 @@ export const IMAGES = {
   roomDouble: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/FgUOplILykpcxCvC.png',
   roomSuite: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/fUEmsqmAhdfbLZit.png',
 
+  // Echte Frühstücksbilder
+  breakfastYoghurt: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/b830c644-a860-4de0-9e5e-6d7db277d1e6_72bc21ce.JPG',
+  breakfastBuffet: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/42f434d9-fed7-4062-82c2-c4fc301ecca8_9b3c3b48.JPG',
+  breakfastCereal: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/5e2db834-4306-4a7d-897d-99c78cb04a35_cbb5e4a0.JPG',
+  breakfastPlate: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/21631994-7706-4674-a109-b4d19720b7ac_0edd9c4c.JPG',
+
   // Picknick-Erlebnis-Bilder
   picknickKorb: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-1-devMVvDTFps7AW2comDxSd.webp',
   picknickTisch: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-2-ioXg2dD3hycw6ocTD9fMsG.webp',
   picknickWald: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-3-WrDXX5j77Jq57w76dvtDp2.webp',
   picknickSekt: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-4-e267ug7xPua2azZP4hjV5j.webp',
+
+  // Romantik-Auszeit Bilder
+  romantikZimmer: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/romantik-zimmer-1-WBM6AQeHbwNVCUjLmueW8Z.webp',
+  romantikFruehstueck: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/romantik-zimmer-2-m3WYmS9GBM2f2kmtNsv8qg.webp',
+  romantikObstSekt: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/romantik-zimmer-3-DkkF5XwP3VfUVdEX3dviv5.webp',
+  romantikDetail: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/romantik-zimmer-4-KioRW8yjvYfrRsEKTjBmxd.webp',
 } as const;

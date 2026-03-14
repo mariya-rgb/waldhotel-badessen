@@ -23,7 +23,7 @@ describe("experiences API", () => {
     it("returns at least 2 experiences for German", async () => {
       const result = await caller.experiences.list({ lang: "de" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBeGreaterThanOrEqual(2);
+      expect(result.length).toBeGreaterThanOrEqual(3);
       result.forEach(e => {
         expect(e.lang).toBe("de");
         expect(e.isActive).toBe(true);
@@ -33,7 +33,7 @@ describe("experiences API", () => {
     it("returns at least 2 experiences for English", async () => {
       const result = await caller.experiences.list({ lang: "en" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBeGreaterThanOrEqual(2);
+      expect(result.length).toBeGreaterThanOrEqual(3);
       result.forEach(e => {
         expect(e.lang).toBe("en");
         expect(e.isActive).toBe(true);
@@ -106,6 +106,38 @@ describe("experiences API", () => {
       }
     });
 
+    it("returns correct Romantik-Auszeit content for German", async () => {
+      const result = await caller.experiences.list({ lang: "de" });
+      const romantik = result.find(e => e.slug === "romantik-auszeit");
+      expect(romantik).toBeDefined();
+      if (romantik) {
+        expect(romantik.title).toBe("Romantik-Auszeit im Waldzimmer");
+        expect(romantik.headline).toContain("Zeit nur Ihnen gehört");
+        expect(romantik.subtitle).toContain("Sekt");
+        expect(romantik.price).toBe("ab 49,00 €");
+        expect(romantik.priceLabel).toContain("pro Nacht");
+        expect(romantik.description).toContain("Frühstück direkt im Bett");
+        expect(romantik.description).toContain("Obstkorb");
+        // Check includes
+        expect(romantik.includes).toBeTruthy();
+        const includes = JSON.parse(romantik.includes!);
+        expect(includes).toBeInstanceOf(Array);
+        expect(includes.length).toBe(5);
+        expect(includes).toContain("Romantisch vorbereitetes Zimmer");
+        expect(includes).toContain("1 Flasche Sekt (gekühlt) auf dem Zimmer");
+        expect(includes).toContain("Frühstück im Bett für 2 Personen");
+        expect(includes).toContain("Frischer Obstkorb");
+        // Check gallery images
+        expect(romantik.galleryImages).toBeTruthy();
+        const gallery = JSON.parse(romantik.galleryImages!);
+        expect(gallery).toBeInstanceOf(Array);
+        expect(gallery.length).toBe(4);
+        // Check SEO text
+        expect(romantik.seoText).toContain("Romantikwochenende");
+        expect(romantik.seoText).toContain("Waldhotel Bad Essen");
+      }
+    });
+
     it("returns correct Forest Picnic content for English", async () => {
       const result = await caller.experiences.list({ lang: "en" });
       const picknick = result.find(e => e.slug === "forest-picnic");
@@ -150,6 +182,27 @@ describe("experiences API", () => {
         expect(result.slug).toBe("picknick-im-wald");
         expect(result.title).toBe("Picknick im Wald");
         expect(result.galleryImages).toBeTruthy();
+      }
+    });
+
+    it("returns Romantik-Auszeit by slug for German", async () => {
+      const result = await caller.experiences.bySlug({ lang: "de", slug: "romantik-auszeit" });
+      expect(result).not.toBeNull();
+      if (result) {
+        expect(result.slug).toBe("romantik-auszeit");
+        expect(result.title).toBe("Romantik-Auszeit im Waldzimmer");
+        expect(result.lang).toBe("de");
+        expect(result.galleryImages).toBeTruthy();
+      }
+    });
+
+    it("returns Romantic Retreat by slug for English", async () => {
+      const result = await caller.experiences.bySlug({ lang: "en", slug: "romantic-retreat" });
+      expect(result).not.toBeNull();
+      if (result) {
+        expect(result.slug).toBe("romantic-retreat");
+        expect(result.title).toBe("Romantic Retreat in the Forest Room");
+        expect(result.lang).toBe("en");
       }
     });
 
