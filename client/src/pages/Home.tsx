@@ -158,6 +158,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Erlebnisse – Teaser */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <RevealSection className="lg:col-span-5">
+              <div className="relative overflow-hidden">
+                <img
+                  src={IMAGES.nature}
+                  alt={lang === 'de' ? 'Erlebnisse im Waldhotel Bad Essen' : 'Experiences at Waldhotel Bad Essen'}
+                  className="w-full h-[400px] lg:h-[520px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </RevealSection>
+            <RevealSection className="lg:col-span-7 lg:pl-8" delay={200}>
+              <p className="subtitle-caps mb-4">{t.nav.experiences}</p>
+              <h2 className="font-heading text-[28px] md:text-[34px] text-[#253541] font-light leading-tight mb-6">
+                {lang === 'de' ? 'Besondere Auszeiten' : 'Special Retreats'}
+              </h2>
+              <div className="gold-line mb-8" />
+              <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
+                {lang === 'de'
+                  ? 'Unsere Arrangements verbinden Übernachtung, Sauna und Frühstück zu einem Erlebnis, das in Erinnerung bleibt. Ob Wochenendauszeit zu zweit oder individuelle Wünsche – wir gestalten Ihren Aufenthalt.'
+                  : 'Our arrangements combine accommodation, sauna and breakfast into an experience that stays with you. Whether a weekend retreat for two or individual wishes – we design your stay.'}
+              </p>
+              <Link
+                href={lang === 'de' ? '/erlebnisse' : '/en/experiences'}
+                className="inline-flex items-center gap-2 text-[#28863E] text-sm tracking-wide hover:text-[#1f6d32] transition-colors duration-300 group"
+              >
+                {lang === 'de' ? 'Erlebnisse entdecken' : 'Discover Experiences'}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </RevealSection>
+          </div>
+        </div>
+      </section>
+
       {/* Lage & Umgebung – Fullwidth background image */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0">

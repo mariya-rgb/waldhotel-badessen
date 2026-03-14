@@ -11,6 +11,7 @@ export const translations = {
       wellness: 'Waldsauna & Wellness',
       location: 'Lage & Umgebung',
       book: 'Buchen',
+      experiences: 'Erlebnisse',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
     },
@@ -191,6 +192,7 @@ export const translations = {
       wellness: 'Forest Sauna & Wellness',
       location: 'Location & Surroundings',
       book: 'Book Now',
+      experiences: 'Experiences',
       imprint: 'Imprint',
       privacy: 'Privacy Policy',
     },
@@ -376,6 +378,7 @@ export function getLocalizedPath(path: string, lang: Lang): string {
       '/wellness': '/en/wellness',
       '/bad-essen': '/en/location',
       '/buchen': '/en/book',
+      '/erlebnisse': '/en/experiences',
       '/impressum': '/en/imprint',
       '/datenschutz': '/en/privacy',
     };

@@ -1,0 +1,21 @@
+CREATE TABLE `experiences` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`lang` varchar(5) NOT NULL,
+	`slug` varchar(128) NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`subtitle` varchar(512),
+	`headline` varchar(512),
+	`description` text,
+	`includes` text,
+	`price` varchar(128),
+	`priceLabel` varchar(255),
+	`duration` varchar(128),
+	`ctaText` varchar(128),
+	`seoText` text,
+	`imageUrl` varchar(1024),
+	`isActive` boolean DEFAULT true,
+	`sortOrder` int DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `experiences_id` PRIMARY KEY(`id`)
+);

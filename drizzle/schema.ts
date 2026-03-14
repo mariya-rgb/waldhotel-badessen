@@ -207,3 +207,30 @@ export const contactMessages = mysqlTable("contact_messages", {
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = typeof contactMessages.$inferInsert;
+
+/**
+ * Experiences / Arrangements – bookable packages
+ */
+export const experiences = mysqlTable("experiences", {
+  id: int("id").autoincrement().primaryKey(),
+  lang: varchar("lang", { length: 5 }).notNull(), // 'de' or 'en'
+  slug: varchar("slug", { length: 128 }).notNull(), // URL-friendly identifier
+  title: varchar("title", { length: 255 }).notNull(),
+  subtitle: varchar("subtitle", { length: 512 }),
+  headline: varchar("headline", { length: 512 }), // emotional main headline
+  description: text("description"), // main body text (~150-200 words)
+  includes: text("includes"), // JSON array of included services
+  price: varchar("price", { length: 128 }), // e.g. 'ab 295,00 €'
+  priceLabel: varchar("priceLabel", { length: 255 }), // e.g. 'pro Arrangement für 2 Personen'
+  duration: varchar("duration", { length: 128 }), // e.g. 'Freitag – Sonntag'
+  ctaText: varchar("ctaText", { length: 128 }), // call-to-action button text
+  seoText: text("seoText"), // optional SEO paragraph
+  imageUrl: varchar("imageUrl", { length: 1024 }),
+  isActive: boolean("isActive").default(true),
+  sortOrder: int("sortOrder").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Experience = typeof experiences.$inferSelect;
+export type InsertExperience = typeof experiences.$inferInsert;

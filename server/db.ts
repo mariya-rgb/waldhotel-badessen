@@ -6,6 +6,7 @@ import {
   wellnessOfferings, wellnessHours, wellnessPrices,
   locationSections, pagesMeta,
   contactMessages, InsertContactMessage,
+  experiences,
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -213,4 +214,25 @@ export async function getContactMessages() {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(contactMessages).orderBy(asc(contactMessages.createdAt));
+}
+
+// ============================================================
+// Experiences / Arrangements
+// ============================================================
+
+export async function getExperiences(lang: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(experiences)
+    .where(and(eq(experiences.lang, lang), eq(experiences.isActive, true)))
+    .orderBy(asc(experiences.sortOrder));
+}
+
+export async function getExperienceBySlug(lang: string, slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(experiences)
+    .where(and(eq(experiences.lang, lang), eq(experiences.slug, slug), eq(experiences.isActive, true)))
+    .limit(1);
+  return result.length > 0 ? result[0] : null;
 }

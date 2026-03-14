@@ -63,3 +63,16 @@
 - [x] Falsche Sauna-Kontaktdaten durch Hotel-Kontaktdaten ersetzen
 - [x] KI-generierte Wellness-Bilder durch echte ersetzen
 - [x] Testen und Checkpoint erstellen (alle 20 Tests bestanden)
+
+## Erlebnisse-Seite erstellen
+- [x] Datenbank-Tabelle für Arrangements/Erlebnisse entwerfen und migrieren
+- [x] Seed-Daten für "Wald-Auszeit Bad Essen" einfügen (DE + EN)
+- [x] tRPC-API-Routen für Erlebnisse erstellen (Liste + Detail)
+- [x] Content texten: Überschrift, Unterüberschrift, Beschreibung, Leistungen, CTA, SEO-Text
+- [x] Frontend: Erlebnisse-Übersichtsseite erstellen
+- [x] Frontend: Arrangement-Detailseite erstellen
+- [x] Navigation um "Erlebnisse" erweitern (Header + Footer)
+- [x] i18n-Übersetzungen (DE + EN) für statische Texte
+- [x] Routing in App.tsx einrichten (/erlebnisse, /en/experiences)
+- [x] Vitest-Tests schreiben und ausführen (28/28 bestanden)
+- [x] Testen und Checkpoint erstellen
