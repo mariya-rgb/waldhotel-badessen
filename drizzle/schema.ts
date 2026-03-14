@@ -226,6 +226,7 @@ export const experiences = mysqlTable("experiences", {
   ctaText: varchar("ctaText", { length: 128 }), // call-to-action button text
   seoText: text("seoText"), // optional SEO paragraph
   imageUrl: varchar("imageUrl", { length: 1024 }),
+  galleryImages: text("galleryImages"), // JSON array of gallery image URLs (portrait format for social media)
   isActive: boolean("isActive").default(true),
   sortOrder: int("sortOrder").default(0),
   createdAt: timestamp("createdAt").defaultNow().notNull(),

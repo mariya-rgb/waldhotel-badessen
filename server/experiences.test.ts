@@ -20,25 +20,24 @@ describe("experiences API", () => {
   const caller = appRouter.createCaller(ctx);
 
   describe("experiences.list", () => {
-    it("returns experiences for German", async () => {
+    it("returns at least 2 experiences for German", async () => {
       const result = await caller.experiences.list({ lang: "de" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBeGreaterThanOrEqual(1);
-      const first = result[0];
-      expect(first.lang).toBe("de");
-      expect(first.slug).toBe("wald-auszeit");
-      expect(first.title).toBe("Wald-Auszeit Bad Essen");
-      expect(first.isActive).toBe(true);
+      expect(result.length).toBeGreaterThanOrEqual(2);
+      result.forEach(e => {
+        expect(e.lang).toBe("de");
+        expect(e.isActive).toBe(true);
+      });
     });
 
-    it("returns experiences for English", async () => {
+    it("returns at least 2 experiences for English", async () => {
       const result = await caller.experiences.list({ lang: "en" });
       expect(result).toBeInstanceOf(Array);
-      expect(result.length).toBeGreaterThanOrEqual(1);
-      const first = result[0];
-      expect(first.lang).toBe("en");
-      expect(first.slug).toBe("wald-auszeit");
-      expect(first.title).toBe("Forest Retreat Bad Essen");
+      expect(result.length).toBeGreaterThanOrEqual(2);
+      result.forEach(e => {
+        expect(e.lang).toBe("en");
+        expect(e.isActive).toBe(true);
+      });
     });
 
     it("returns correct Wald-Auszeit content for German", async () => {
@@ -67,12 +66,64 @@ describe("experiences API", () => {
         // Check SEO text
         expect(waldAuszeit.seoText).toContain("Wochenendtrip");
         expect(waldAuszeit.seoText).toContain("Kurzurlaub im Grünen");
+        // Check gallery images
+        expect(waldAuszeit.galleryImages).toBeTruthy();
+        const gallery = JSON.parse(waldAuszeit.galleryImages!);
+        expect(gallery).toBeInstanceOf(Array);
+        expect(gallery.length).toBeGreaterThanOrEqual(3);
+      }
+    });
+
+    it("returns correct Picknick content for German", async () => {
+      const result = await caller.experiences.list({ lang: "de" });
+      const picknick = result.find(e => e.slug === "picknick-im-wald");
+      expect(picknick).toBeDefined();
+      if (picknick) {
+        expect(picknick.title).toBe("Picknick im Wald");
+        expect(picknick.headline).toContain("Picknick");
+        expect(picknick.subtitle).toContain("Genuss unter freiem Himmel");
+        expect(picknick.price).toBe("ab 54,00 €");
+        expect(picknick.priceLabel).toContain("2 Personen");
+        expect(picknick.description).toContain("Picknickkorb");
+        expect(picknick.description).toContain("Sekt");
+        expect(picknick.description).toContain("Frühstück");
+        // Check includes
+        expect(picknick.includes).toBeTruthy();
+        const includes = JSON.parse(picknick.includes!);
+        expect(includes).toBeInstanceOf(Array);
+        expect(includes.length).toBe(5);
+        expect(includes).toContain("Picknickkorb für 2 Personen");
+        expect(includes).toContain("1 Flasche Sekt (gekühlt)");
+        expect(includes).toContain("Frühstück oder kalter Lunch nach Wahl");
+        // Check gallery images (4 Hochkant-Fotos)
+        expect(picknick.galleryImages).toBeTruthy();
+        const gallery = JSON.parse(picknick.galleryImages!);
+        expect(gallery).toBeInstanceOf(Array);
+        expect(gallery.length).toBe(4);
+        // Check SEO text
+        expect(picknick.seoText).toContain("Picknick im Wald");
+        expect(picknick.seoText).toContain("Waldhotel Bad Essen");
+      }
+    });
+
+    it("returns correct Forest Picnic content for English", async () => {
+      const result = await caller.experiences.list({ lang: "en" });
+      const picknick = result.find(e => e.slug === "forest-picnic");
+      expect(picknick).toBeDefined();
+      if (picknick) {
+        expect(picknick.title).toBe("Forest Picnic");
+        expect(picknick.price).toBe("from 54.00 €");
+        expect(picknick.description).toContain("picnic basket");
+        expect(picknick.description).toContain("sparkling wine");
+        const includes = JSON.parse(picknick.includes!);
+        expect(includes).toContain("Picnic basket for 2 persons");
+        expect(includes).toContain("1 bottle of sparkling wine (chilled)");
       }
     });
   });
 
   describe("experiences.bySlug", () => {
-    it("returns a single experience by slug for German", async () => {
+    it("returns Wald-Auszeit by slug for German", async () => {
       const result = await caller.experiences.bySlug({ lang: "de", slug: "wald-auszeit" });
       expect(result).not.toBeNull();
       if (result) {
@@ -82,13 +133,32 @@ describe("experiences API", () => {
       }
     });
 
-    it("returns a single experience by slug for English", async () => {
+    it("returns Forest Retreat by slug for English", async () => {
       const result = await caller.experiences.bySlug({ lang: "en", slug: "wald-auszeit" });
       expect(result).not.toBeNull();
       if (result) {
         expect(result.slug).toBe("wald-auszeit");
         expect(result.title).toBe("Forest Retreat Bad Essen");
         expect(result.lang).toBe("en");
+      }
+    });
+
+    it("returns Picknick by slug for German", async () => {
+      const result = await caller.experiences.bySlug({ lang: "de", slug: "picknick-im-wald" });
+      expect(result).not.toBeNull();
+      if (result) {
+        expect(result.slug).toBe("picknick-im-wald");
+        expect(result.title).toBe("Picknick im Wald");
+        expect(result.galleryImages).toBeTruthy();
+      }
+    });
+
+    it("returns Forest Picnic by slug for English", async () => {
+      const result = await caller.experiences.bySlug({ lang: "en", slug: "forest-picnic" });
+      expect(result).not.toBeNull();
+      if (result) {
+        expect(result.slug).toBe("forest-picnic");
+        expect(result.title).toBe("Forest Picnic");
       }
     });
 

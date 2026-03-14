@@ -33,4 +33,10 @@ export const IMAGES = {
   roomLounge: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/OqtDfoBMANIDxLlY.png',
   roomDouble: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/FgUOplILykpcxCvC.png',
   roomSuite: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663365901872/fUEmsqmAhdfbLZit.png',
+
+  // Picknick-Erlebnis-Bilder
+  picknickKorb: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-1-devMVvDTFps7AW2comDxSd.webp',
+  picknickTisch: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-2-ioXg2dD3hycw6ocTD9fMsG.webp',
+  picknickWald: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-3-WrDXX5j77Jq57w76dvtDp2.webp',
+  picknickSekt: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663365901872/gP4ek7BMjABi6Nex8zFehy/picknick-wald-4-e267ug7xPua2azZP4hjV5j.webp',
 } as const;

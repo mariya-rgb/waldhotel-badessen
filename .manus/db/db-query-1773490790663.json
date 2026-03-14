@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE experiences ADD COLUMN galleryImages TEXT NULL COMMENT 'JSON array of gallery image URLs';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute ALTER TABLE experiences ADD COLUMN galleryImages TEXT NULL COMMENT 'JSON array of gallery image URLs';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 324
+}

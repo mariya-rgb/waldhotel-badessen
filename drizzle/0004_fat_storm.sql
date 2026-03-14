@@ -1,0 +1,1 @@
+-- galleryImages column already exists via direct SQL ALTER

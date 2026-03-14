@@ -76,3 +76,13 @@
 - [x] Routing in App.tsx einrichten (/erlebnisse, /en/experiences)
 - [x] Vitest-Tests schreiben und ausführen (28/28 bestanden)
 - [x] Testen und Checkpoint erstellen
+
+## Erlebnisse-Seiten optimieren + Picknick im Wald
+- [x] Alle Rechtschreibfehler auf Erlebnisse-Seiten korrigieren
+- [x] Social-Media Meta-Tags (Open Graph, Twitter Cards, Pinterest) für jede Erlebnis-Landingpage
+- [x] Erlebnis-Detailseite als vollwertige Landingpage umbauen (starke Überschriften, 3-4 Hochkant-Fotos)
+- [x] Hochkant-Fotos für Picknick-Erlebnis generieren und hochladen (4 Stück)
+- [x] Neues Erlebnis "Picknick im Wald" in DB einfügen (DE + EN, 54€ für 2 Personen)
+- [x] Wald-Auszeit Landingpage ebenfalls mit Hochkant-Fotos und starken Überschriften aufwerten
+- [x] Tests aktualisieren und alle Tests bestehen lassen (32/32 bestanden)
+- [x] Checkpoint speichern

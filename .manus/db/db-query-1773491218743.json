@@ -1,0 +1,22 @@
+{
+  "query": "SELECT id, lang, slug, title FROM experiences WHERE lang = 'de';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute SELECT id, lang, slug, title FROM experiences WHERE lang = 'de';",
+  "rows": [
+    {
+      "id": "1",
+      "lang": "de",
+      "slug": "wald-auszeit",
+      "title": "Wald-Auszeit Bad Essen"
+    },
+    {
+      "id": "30001",
+      "lang": "de",
+      "slug": "picknick-im-wald",
+      "title": "Picknick im Wald"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tlang\tslug\ttitle\n1\tde\twald-auszeit\tWald-Auszeit Bad Essen\n30001\tde\tpicknick-im-wald\tPicknick im Wald\n",
+  "stderr": "",
+  "execution_time_ms": 68
+}
