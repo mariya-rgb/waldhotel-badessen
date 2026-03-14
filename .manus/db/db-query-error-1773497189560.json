@@ -1,0 +1,8 @@
+{
+  "query": "SELECT slug, lang, gallery_images FROM experiences WHERE slug IN ('romantik-auszeit', 'romantic-retreat', 'wald-auszeit', 'forest-retreat') ORDER BY slug, lang;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3BRkZm5JcFdrkde.root --database gP4ek7BMjABi6Nex8zFehy --execute SELECT slug, lang, gallery_images FROM experiences WHERE slug IN ('romantik-auszeit', 'romantic-retreat', 'wald-auszeit', 'forest-retreat') ORDER BY slug, lang;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'gallery_images' in 'field list'"
+  ]
+}

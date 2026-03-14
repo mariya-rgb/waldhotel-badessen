@@ -96,3 +96,12 @@
 - [x] images.ts mit neuen Bildern aktualisieren
 - [x] Tests aktualisieren und alle Tests bestehen lassen (35/35 bestanden)
 - [x] Checkpoint speichern
+
+## Echte Zimmerbilder + Social Media Links
+- [x] Generierte Romantik-Zimmerbilder durch echte Zimmerbilder ersetzen (1 Stimmungsbild + 3 echte Fotos)
+- [x] Wald-Auszeit Galerie um echte Zimmerbilder ergänzt (7 Bilder: Sauna + Zimmer + Frühstück)
+- [x] Facebook-Link auf allen Seiten eingebaut (Header Desktop + Mobile + Footer)
+- [x] Instagram-Link auf allen Seiten eingebaut (Header Desktop + Mobile + Footer)
+- [x] Social-Media-Sharing-Buttons auf Erlebnis-Landingpages (Facebook, Instagram, Pinterest)
+- [x] Tests ausgeführt und visuell geprüft (35/35 bestanden)
+- [x] Checkpoint speichern
