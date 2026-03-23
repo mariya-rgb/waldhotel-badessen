@@ -1,3 +1,0 @@
-[build]
-  command = "cd Kunde && pnpm install && pnpm run build"
-  publish = "Kunde/dist/public"
