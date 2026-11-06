@@ -31,14 +31,12 @@ export default function Header() {
     ? [
         { href: '/', label: t.nav.home },
         { href: '/zimmer', label: t.nav.rooms },
-        { href: '/erlebnisse', label: t.nav.experiences },
         { href: '/bad-essen', label: t.nav.location },
         { href: '/buchen', label: t.nav.book },
       ]
     : [
         { href: '/en', label: t.nav.home },
         { href: '/en/rooms', label: t.nav.rooms },
-        { href: '/en/experiences', label: t.nav.experiences },
         { href: '/en/location', label: t.nav.location },
         { href: '/en/book', label: t.nav.book },
       ];
@@ -48,8 +46,8 @@ export default function Header() {
     setLang(newLang);
     // Navigate to equivalent page
     const pathMap: Record<string, string> = lang === 'de'
-      ? { '/': '/en', '/zimmer': '/en/rooms', '/erlebnisse': '/en/experiences', '/bad-essen': '/en/location', '/buchen': '/en/book', '/impressum': '/en/imprint', '/datenschutz': '/en/privacy' }
-      : { '/en': '/', '/en/rooms': '/zimmer', '/en/experiences': '/erlebnisse', '/en/location': '/bad-essen', '/en/book': '/buchen', '/en/imprint': '/impressum', '/en/privacy': '/datenschutz' };
+      ? { '/': '/en', '/zimmer': '/en/rooms', '/bad-essen': '/en/location', '/buchen': '/en/book', '/impressum': '/en/imprint', '/datenschutz': '/en/privacy' }
+      : { '/en': '/', '/en/rooms': '/zimmer', '/en/location': '/bad-essen', '/en/book': '/buchen', '/en/imprint': '/impressum', '/en/privacy': '/datenschutz' };
     const newPath = pathMap[location] || (newLang === 'en' ? '/en' : '/');
     window.location.href = newPath;
   };

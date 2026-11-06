@@ -50,6 +50,7 @@ export default function Booking() {
             </p>
             <div className="mt-8 grid gap-3 rounded-sm border border-[#C8A96E]/40 bg-[#F7F5F0] p-6 text-left">
               <p className="text-sm leading-relaxed text-[#253541]/80"><strong className="font-medium text-[#253541]">{lang === 'de' ? 'Für wen wir da sind' : 'Who we welcome'}:</strong> {t.bookingPage.audienceNote}</p>
+              <p className="text-sm leading-relaxed text-[#253541]/80"><strong className="font-medium text-[#253541]">{lang === 'de' ? 'Unkomplizierte Abläufe' : 'Simple processes'}:</strong> {t.bookingPage.serviceNote}</p>
               <p className="text-sm leading-relaxed text-[#253541]/80"><strong className="font-medium text-[#253541]">{lang === 'de' ? 'Frühstück' : 'Breakfast'}:</strong> {t.bookingPage.breakfastNote}</p>
             </div>
           </RevealSection>

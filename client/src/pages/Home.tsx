@@ -127,20 +127,20 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <RevealSection className="lg:col-span-7 lg:pr-8 order-2 lg:order-1" delay={200}>
-              <p className="subtitle-caps mb-4">{lang === 'de' ? 'Übernachten in Bad Essen' : 'Staying in Bad Essen'}</p>
+              <p className="subtitle-caps mb-4">{lang === 'de' ? 'Das SB-Hotel am Wiehengebirge' : 'Self-service hotel at the Wiehengebirge'}</p>
               <h2 className="font-heading text-[28px] md:text-[34px] text-[#253541] font-light leading-tight mb-6">
-                {lang === 'de' ? 'Praktisch für den Arbeitseinsatz. Offen für Ihre Auszeit.' : 'Practical for work stays. Open for your time away.'}
+                {lang === 'de' ? 'Unkompliziert ankommen. Selbstständig bleiben.' : 'Arrive easily. Stay independent.'}
               </h2>
               <div className="gold-line mb-8" />
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-5">
                 {lang === 'de'
-                  ? 'Das Waldhotel Bad Essen ist vor allem eine verlässliche Unterkunft für Monteure, Handwerker und Geschäftsreisende. Ruhige Zimmer, unkomplizierte Anreise, Parkplätze und WLAN machen den Aufenthalt angenehm und planbar.'
-                  : 'Waldhotel Bad Essen is first and foremost a reliable place to stay for tradespeople, craftsmen and business travellers. Quiet rooms, easy arrival, parking and WiFi make every stay comfortable and predictable.'}
+                  ? 'Das Waldhotel Bad Essen ist vor allem eine verlässliche SB-Unterkunft für Monteure, Handwerker und Geschäftsreisende. Ruhige Zimmer, klare Informationen, unkomplizierte Abläufe, Parkplätze und WLAN machen den Aufenthalt angenehm und planbar.'
+                  : 'Waldhotel Bad Essen is first and foremost a reliable self-service accommodation for tradespeople, craftsmen and business travellers. Quiet rooms, clear information, easy processes, parking and WiFi make every stay comfortable and predictable.'}
               </p>
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
                 {lang === 'de'
-                  ? 'Gleichzeitig heißen wir Feriengäste und Gruppen willkommen, die Bad Essen zu Fuß, mit dem Fahrrad oder auf Waldwegen entdecken möchten. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.'
-                  : 'We also welcome holiday guests and groups who want to explore Bad Essen on foot, by bicycle or along the forest trails. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.'}
+                  ? 'Gleichzeitig heißen wir Feriengäste und Gruppen willkommen, die Bad Essen zu Fuß, mit dem Fahrrad oder auf Waldwegen entdecken möchten. Die wichtigsten Anliegen lassen sich problemlos per E-Mail oder Telefon regeln. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.'
+                  : 'We also welcome holiday guests and groups who want to explore Bad Essen on foot, by bicycle or along the forest trails. Key questions can be handled easily by email or phone. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.'}
               </p>
               <Link
                 href={roomsUrl}
@@ -159,43 +159,6 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-            </RevealSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Erlebnisse – Teaser */}
-      <section className="section-padding bg-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            <RevealSection className="lg:col-span-5">
-              <div className="relative overflow-hidden">
-                <img
-                  src={IMAGES.nature}
-                  alt={lang === 'de' ? 'Erlebnisse im Waldhotel Bad Essen' : 'Experiences at Waldhotel Bad Essen'}
-                  className="w-full h-[400px] lg:h-[520px] object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </RevealSection>
-            <RevealSection className="lg:col-span-7 lg:pl-8" delay={200}>
-              <p className="subtitle-caps mb-4">{t.nav.experiences}</p>
-              <h2 className="font-heading text-[28px] md:text-[34px] text-[#253541] font-light leading-tight mb-6">
-                {lang === 'de' ? 'Besondere Auszeiten' : 'Special Retreats'}
-              </h2>
-              <div className="gold-line mb-8" />
-              <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
-                {lang === 'de'
-                  ? 'Unsere Erlebnisse ergänzen Ihren Aufenthalt mit besonderen Momenten in der Natur – etwa einem Picknick mit kaltem Lunch. Für Gruppen planen wir passende Leistungen gern nach vorheriger Anfrage.'
-                  : 'Our experiences add special moments in nature to your stay – for example a picnic with a cold lunch. For groups, we are happy to arrange suitable services by prior request.'}
-              </p>
-              <Link
-                href={lang === 'de' ? '/erlebnisse' : '/en/experiences'}
-                className="inline-flex items-center gap-2 text-[#28863E] text-sm tracking-wide hover:text-[#1f6d32] transition-colors duration-300 group"
-              >
-                {lang === 'de' ? 'Erlebnisse entdecken' : 'Discover Experiences'}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
             </RevealSection>
           </div>
         </div>

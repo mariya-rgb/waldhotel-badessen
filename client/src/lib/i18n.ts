@@ -10,7 +10,6 @@ export const translations = {
       rooms: 'Zimmer & Suiten',
       location: 'Lage & Umgebung',
       book: 'Buchen',
-      experiences: 'Erlebnisse',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
     },
@@ -22,7 +21,7 @@ export const translations = {
     hotel: {
       label: 'Das Hotel',
       title: 'Tradition trifft Natur',
-      text1: 'Seit 1906 empfängt das Waldhotel Bad Essen seine Gäste am Fuße des Wiehengebirges. Heute ist unser Haus vor allem eine verlässliche Unterkunft für Monteure, Handwerker und Geschäftsreisende – mit ruhigen Zimmern, unkomplizierter Anreise und persönlicher Betreuung.',
+      text1: 'Seit 1906 empfängt das Waldhotel Bad Essen seine Gäste am Fuße des Wiehengebirges. Heute ist unser Haus vor allem eine verlässliche Unterkunft für Monteure, Handwerker und Geschäftsreisende – mit ruhigen Zimmern, klaren Abläufen und unkomplizierter Organisation per E-Mail oder Telefon.',
       text2: 'Auch Feriengäste und Gruppen sind willkommen, um Bad Essen zu Fuß, mit dem Fahrrad und auf den Wegen durch den Wald zu entdecken. 19 Zimmer, kostenfreies WLAN und Parkplätze direkt am Haus machen den Aufenthalt angenehm. Ein reguläres Frühstück bieten wir nicht an; für Gruppen ist Frühstück nach vorheriger Anfrage möglich.',
       cta: 'Unsere Zimmer entdecken',
     },
@@ -76,7 +75,7 @@ export const translations = {
         { service: 'Hund', price: '10,00 € / Nacht' },
         { service: 'Zustellbett', price: '30,00 € / Nacht' },
       ],
-      stayNote: 'Unser Haus wird hauptsächlich von Monteuren, Handwerkern und Geschäftsreisenden genutzt. Feriengäste, Wanderer, Radfahrer und Gruppen sind ebenfalls willkommen. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.',
+      stayNote: 'Unser SB-Hotel wird hauptsächlich von Monteuren, Handwerkern und Geschäftsreisenden genutzt. Feriengäste, Wanderer, Radfahrer und Gruppen sind ebenfalls willkommen. Die Abläufe sind klar organisiert und lassen sich problemlos per E-Mail oder Telefon regeln. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.',
       notes: [
         'Erdgeschosszimmer rollstuhlgerecht, Platz für 4-köpfige Familie',
         'Hunde willkommen nach vorheriger Absprache',
@@ -110,8 +109,9 @@ export const translations = {
     bookingPage: {
       title: 'Direkt buchen – bester Preis garantiert',
       intro: 'Buchen Sie Ihren Aufenthalt im Waldhotel Bad Essen direkt und ohne Umwege. Wählen Sie Ihren Wunschzeitraum und Zimmertyp.',
-      audienceNote: 'Unser Haus beherbergt hauptsächlich Monteure, Handwerker und Geschäftsreisende. Feriengäste und Gruppen sind für Wanderungen, Wald- und Radtouren ebenfalls herzlich willkommen.',
+      audienceNote: 'Unser SB-Hotel beherbergt hauptsächlich Monteure, Handwerker und Geschäftsreisende. Feriengäste und Gruppen sind für Wanderungen, Wald- und Radtouren ebenfalls herzlich willkommen. Die wichtigsten Abläufe lassen sich unkompliziert per E-Mail oder Telefon regeln.',
       breakfastNote: 'Ein reguläres Frühstück bieten wir nicht an. Für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.',
+      serviceNote: 'Es handelt sich um ein gut organisiertes SB-Hotel ohne persönliche Betreuung vor Ort. Buchung, Anreiseinformationen und Anliegen werden problemlos per E-Mail oder Telefon geregelt.',
       phone: 'Sie möchten lieber telefonisch buchen? Rufen Sie uns an:',
       emailText: 'Oder schreiben Sie uns:',
       also: 'Auch buchbar über:',
@@ -119,7 +119,7 @@ export const translations = {
     // Contact form
     contactForm: {
       title: 'Kontaktformular',
-      subtitle: 'Schreiben Sie uns – wir melden uns schnellstmöglich.',
+      subtitle: 'Buchung, Anreise und Fragen lassen sich unkompliziert per E-Mail oder Telefon klären.',
       name: 'Ihr Name',
       email: 'E-Mail-Adresse',
       phone: 'Telefonnummer (optional)',
@@ -158,7 +158,6 @@ export const translations = {
       rooms: 'Rooms & Suites',
       location: 'Location & Surroundings',
       book: 'Book Now',
-      experiences: 'Experiences',
       imprint: 'Imprint',
       privacy: 'Privacy Policy',
     },
@@ -170,7 +169,7 @@ export const translations = {
     hotel: {
       label: 'The Hotel',
       title: 'Tradition Meets Nature',
-      text1: 'Since 1906, Waldhotel Bad Essen has welcomed guests at the foot of the Wiehengebirge. Today, our house is first and foremost a reliable place to stay for tradespeople, craftsmen and business travellers – with quiet rooms, easy arrival and personal service.',
+      text1: 'Since 1906, Waldhotel Bad Essen has welcomed guests at the foot of the Wiehengebirge. Today, our house is first and foremost a reliable place to stay for tradespeople, craftsmen and business travellers – with quiet rooms, clear processes and uncomplicated organisation by email or phone.',
       text2: 'Holiday guests and groups are also welcome to explore Bad Essen on foot, by bicycle and along the forest trails. 19 rooms, complimentary WiFi and parking right at the hotel make every stay comfortable. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.',
       cta: 'Discover Our Rooms',
     },
@@ -223,7 +222,7 @@ export const translations = {
         { service: 'Dog', price: '€10.00 / night' },
         { service: 'Extra bed', price: '€30.00 / night' },
       ],
-      stayNote: 'Our house is primarily used by tradespeople, craftsmen and business travellers. Holiday guests, hikers, cyclists and groups are also welcome. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.',
+      stayNote: 'Our self-service hotel primarily accommodates tradespeople, craftsmen and business travellers. Holiday guests, hikers, cyclists and groups are also welcome. Clear processes and easy communication by email or phone keep every stay uncomplicated. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.',
       notes: [
         'Ground floor rooms wheelchair accessible, space for family of 4',
         'Dogs welcome by prior arrangement',
@@ -255,15 +254,16 @@ export const translations = {
     bookingPage: {
       title: 'Book Directly – Best Price Guaranteed',
       intro: 'Book your stay at the Waldhotel Bad Essen directly and without detours. Choose your preferred dates and room type.',
-      audienceNote: 'Our house primarily accommodates tradespeople, craftsmen and business travellers. Holiday guests and groups are also very welcome for hiking, forest walks and cycling tours.',
+      audienceNote: 'Our self-service hotel primarily accommodates tradespeople, craftsmen and business travellers. Holiday guests and groups are also very welcome for hiking, forest walks and cycling tours. The key arrangements can be handled easily by email or phone.',
       breakfastNote: 'We do not offer regular breakfast. Breakfast can be arranged for groups by prior request.',
+      serviceNote: 'This is a well-organised self-service hotel without personal on-site service. Bookings, arrival information and questions are handled easily by email or phone.',
       phone: 'Prefer to book by phone? Call us:',
       emailText: 'Or write to us:',
       also: 'Also bookable via:',
     },
     contactForm: {
       title: 'Contact Form',
-      subtitle: 'Write to us – we will get back to you as soon as possible.',
+      subtitle: 'Bookings, arrival information and questions can be handled easily by email or phone.',
       name: 'Your Name',
       email: 'Email Address',
       phone: 'Phone Number (optional)',
@@ -312,7 +312,6 @@ export function getLocalizedPath(path: string, lang: Lang): string {
       '/zimmer': '/en/rooms',
       '/bad-essen': '/en/location',
       '/buchen': '/en/book',
-      '/erlebnisse': '/en/experiences',
       '/impressum': '/en/imprint',
       '/datenschutz': '/en/privacy',
     };

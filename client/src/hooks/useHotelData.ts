@@ -36,13 +36,3 @@ export function usePageMeta(lang: Lang, slug: string) {
   const input = useMemo(() => ({ lang, slug }), [lang, slug]);
   return trpc.pages.meta.useQuery(input);
 }
-
-export function useExperiences(lang: Lang) {
-  const langInput = useMemo(() => ({ lang }), [lang]);
-  return trpc.experiences.list.useQuery(langInput);
-}
-
-export function useExperienceBySlug(lang: Lang, slug: string) {
-  const input = useMemo(() => ({ lang, slug }), [lang, slug]);
-  return trpc.experiences.bySlug.useQuery(input);
-}

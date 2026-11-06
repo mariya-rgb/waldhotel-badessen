@@ -7,7 +7,6 @@ import {
   getHotelInfo, getRooms, getExtras, getRoomNotes,
   getLocationSections, getPageMeta, getAllPagesMeta,
   createContactMessage,
-  getExperiences, getExperienceBySlug,
 } from "./db";
 import { notifyOwner } from "./_core/notification";
 
@@ -107,22 +106,6 @@ export const appRouter = router({
         });
 
         return { success: true };
-      }),
-  }),
-
-  experiences: router({
-    /** Get all active experiences for a language */
-    list: publicProcedure
-      .input(langInput)
-      .query(async ({ input }) => {
-        return getExperiences(input.lang);
-      }),
-
-    /** Get a single experience by slug */
-    bySlug: publicProcedure
-      .input(z.object({ lang: z.enum(["de", "en"]), slug: z.string() }))
-      .query(async ({ input }) => {
-        return getExperienceBySlug(input.lang, input.slug);
       }),
   }),
 
