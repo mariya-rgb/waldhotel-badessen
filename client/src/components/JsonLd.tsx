@@ -8,7 +8,7 @@ const hotelSchema = {
   "@context": "https://schema.org",
   "@type": "Hotel",
   "name": "Waldhotel Bad Essen",
-  "description": "Traditionshotel seit 1906 am Wiehengebirge mit 19 Zimmern und Waldsauna",
+  "description": "Traditionshotel seit 1906 am Wiehengebirge mit 19 Zimmern – vor allem für Monteure, Handwerker und Geschäftsreisende sowie für Feriengäste und Gruppen.",
   "url": "https://www.waldhotel-badessen.de",
   "telephone": "+4917632419623",
   "email": "kontakt@waldhotel-badessen.de",
@@ -32,8 +32,8 @@ const hotelSchema = {
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": "Kostenloses WLAN"},
     {"@type": "LocationFeatureSpecification", "name": "Kostenlose Parkplätze"},
-    {"@type": "LocationFeatureSpecification", "name": "Waldsauna"},
-    {"@type": "LocationFeatureSpecification", "name": "Barrierefreie Zimmer"}
+    {"@type": "LocationFeatureSpecification", "name": "Barrierefreie Zimmer"},
+    {"@type": "LocationFeatureSpecification", "name": "Gruppen auf Anfrage"}
   ],
   "petsAllowed": true,
   "checkinTime": "15:00",

@@ -26,20 +26,6 @@ export function useRoomNotes(lang: Lang) {
   return trpc.rooms.notes.useQuery(langInput);
 }
 
-export function useWellnessOfferings(lang: Lang) {
-  const langInput = useMemo(() => ({ lang }), [lang]);
-  return trpc.wellness.offerings.useQuery(langInput);
-}
-
-export function useWellnessHours(lang: Lang) {
-  const langInput = useMemo(() => ({ lang }), [lang]);
-  return trpc.wellness.hours.useQuery(langInput);
-}
-
-export function useWellnessPrices(lang: Lang) {
-  const langInput = useMemo(() => ({ lang }), [lang]);
-  return trpc.wellness.prices.useQuery(langInput);
-}
 
 export function useLocationSections(lang: Lang) {
   const langInput = useMemo(() => ({ lang }), [lang]);

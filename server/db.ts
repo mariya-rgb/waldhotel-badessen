@@ -3,7 +3,6 @@ import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser, users,
   hotelInfo, rooms, extras, roomNotes,
-  wellnessOfferings, wellnessHours, wellnessPrices,
   locationSections, pagesMeta,
   contactMessages, InsertContactMessage,
   experiences,
@@ -140,35 +139,6 @@ export async function getRoomNotes(lang: string) {
   return db.select().from(roomNotes).where(eq(roomNotes.lang, lang)).orderBy(asc(roomNotes.sortOrder));
 }
 
-// ============================================================
-// Wellness Offerings
-// ============================================================
-
-export async function getWellnessOfferings(lang: string) {
-  const db = await getDb();
-  if (!db) return [];
-  return db.select().from(wellnessOfferings).where(eq(wellnessOfferings.lang, lang)).orderBy(asc(wellnessOfferings.sortOrder));
-}
-
-// ============================================================
-// Wellness Hours
-// ============================================================
-
-export async function getWellnessHours(lang: string) {
-  const db = await getDb();
-  if (!db) return [];
-  return db.select().from(wellnessHours).where(eq(wellnessHours.lang, lang)).orderBy(asc(wellnessHours.dayIndex));
-}
-
-// ============================================================
-// Wellness Prices
-// ============================================================
-
-export async function getWellnessPrices(lang: string) {
-  const db = await getDb();
-  if (!db) return [];
-  return db.select().from(wellnessPrices).where(eq(wellnessPrices.lang, lang)).orderBy(asc(wellnessPrices.sortOrder));
-}
 
 // ============================================================
 // Location Sections

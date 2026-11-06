@@ -9,7 +9,6 @@ import { CookieProvider } from "./contexts/CookieContext";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
-import Wellness from "./pages/Wellness";
 import Location from "./pages/Location";
 import Booking from "./pages/Booking";
 import Impressum from "./pages/Impressum";
@@ -20,7 +19,6 @@ import ExperienceDetail from "./pages/ExperienceDetail";
 // Wrapper for English routes that sets language to 'en'
 function EnHome() { return <Home />; }
 function EnRooms() { return <Rooms />; }
-function EnWellness() { return <Wellness />; }
 function EnLocation() { return <Location />; }
 function EnBooking() { return <Booking />; }
 function EnImprint() { return <Impressum />; }
@@ -36,7 +34,6 @@ function DeRouter() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/zimmer" component={Rooms} />
-          <Route path="/wellness" component={Wellness} />
           <Route path="/bad-essen" component={Location} />
           <Route path="/buchen" component={Booking} />
           <Route path="/erlebnisse" component={Experiences} />
@@ -59,7 +56,6 @@ function EnRouter() {
         <Switch>
           <Route path="/en" component={EnHome} />
           <Route path="/en/rooms" component={EnRooms} />
-          <Route path="/en/wellness" component={EnWellness} />
           <Route path="/en/location" component={EnLocation} />
           <Route path="/en/book" component={EnBooking} />
           <Route path="/en/experiences" component={EnExperiences} />

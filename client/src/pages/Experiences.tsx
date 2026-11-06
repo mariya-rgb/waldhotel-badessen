@@ -40,8 +40,8 @@ export default function Experiences() {
   // i18n fallback
   const heroTitle = pageMeta?.heroTitle || (lang === 'de' ? 'Erlebnisse & Arrangements' : 'Experiences & Arrangements');
   const introText = pageMeta?.introText || (lang === 'de'
-    ? 'Besondere Momente verdienen besondere Rahmen. Unsere Arrangements verbinden das Beste, was das Waldhotel Bad Essen zu bieten hat – zu einem Erlebnis, das in Erinnerung bleibt.'
-    : 'Special moments deserve special settings. Our arrangements combine the best the Waldhotel Bad Essen has to offer – into an experience that stays with you.');
+    ? 'Besondere Momente entstehen draußen: bei einem Picknick im Wald, auf einer Wanderung oder bei einer Radtour durch das Wiehengebirge. Unsere Erlebnisse ergänzen Ihren Aufenthalt mit klaren, unkomplizierten Leistungen.'
+    : 'Special moments happen outdoors: during a forest picnic, a hike or a cycling tour through the Wiehengebirge. Our experiences complement your stay with clear, uncomplicated services.');
 
   return (
     <div className="min-h-screen">
@@ -89,7 +89,7 @@ export default function Experiences() {
                       <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                         <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
                           <img
-                            src={exp.imageUrl || IMAGES.wellnessSauna}
+                            src={exp.imageUrl || IMAGES.nature}
                             alt={exp.title}
                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                           />
@@ -189,8 +189,8 @@ export default function Experiences() {
             </h2>
             <p className="text-white/70 leading-relaxed mb-10 max-w-xl mx-auto">
               {lang === 'de'
-                ? 'Sie haben besondere Wünsche oder möchten ein individuelles Erlebnis zusammenstellen? Kontaktieren Sie uns – wir gestalten Ihren Aufenthalt nach Ihren Vorstellungen.'
-                : 'Do you have special wishes or would you like to put together an individual experience? Contact us – we will design your stay according to your ideas.'}
+                ? 'Sie reisen als Gruppe oder möchten für Ihre Wanderung beziehungsweise Radtour eine passende Leistung anfragen? Kontaktieren Sie uns – Frühstück für Gruppen kann nach vorheriger Anfrage organisiert werden.'
+                : 'Are you travelling as a group or would you like to request a service for your hike or cycling tour? Contact us – breakfast for groups can be arranged by prior request.'}
             </p>
             <Link
               href={bookUrl}

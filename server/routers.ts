@@ -5,7 +5,6 @@ import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import {
   getHotelInfo, getRooms, getExtras, getRoomNotes,
-  getWellnessOfferings, getWellnessHours, getWellnessPrices,
   getLocationSections, getPageMeta, getAllPagesMeta,
   createContactMessage,
   getExperiences, getExperienceBySlug,
@@ -61,28 +60,6 @@ export const appRouter = router({
       }),
   }),
 
-  wellness: router({
-    /** Get wellness offerings */
-    offerings: publicProcedure
-      .input(langInput)
-      .query(async ({ input }) => {
-        return getWellnessOfferings(input.lang);
-      }),
-
-    /** Get opening hours */
-    hours: publicProcedure
-      .input(langInput)
-      .query(async ({ input }) => {
-        return getWellnessHours(input.lang);
-      }),
-
-    /** Get wellness prices */
-    prices: publicProcedure
-      .input(langInput)
-      .query(async ({ input }) => {
-        return getWellnessPrices(input.lang);
-      }),
-  }),
 
   location: router({
     /** Get location sections (nature, culture, health) */

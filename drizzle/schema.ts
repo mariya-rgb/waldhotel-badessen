@@ -89,56 +89,6 @@ export type Extra = typeof extras.$inferSelect;
 export type InsertExtra = typeof extras.$inferInsert;
 
 /**
- * Wellness offerings – sauna types and facilities
- */
-export const wellnessOfferings = mysqlTable("wellness_offerings", {
-  id: int("id").autoincrement().primaryKey(),
-  lang: varchar("lang", { length: 5 }).notNull(),
-  title: varchar("title", { length: 255 }).notNull(),
-  description: text("description"),
-  iconName: varchar("iconName", { length: 64 }),
-  sortOrder: int("sortOrder").default(0),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
-});
-
-export type WellnessOffering = typeof wellnessOfferings.$inferSelect;
-export type InsertWellnessOffering = typeof wellnessOfferings.$inferInsert;
-
-/**
- * Wellness hours – opening hours
- */
-export const wellnessHours = mysqlTable("wellness_hours", {
-  id: int("id").autoincrement().primaryKey(),
-  lang: varchar("lang", { length: 5 }).notNull(),
-  dayName: varchar("dayName", { length: 64 }).notNull(),
-  timeRange: varchar("timeRange", { length: 128 }).notNull(),
-  note: varchar("note", { length: 255 }),
-  dayIndex: int("dayIndex").default(0), // 0=Monday, 6=Sunday
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
-});
-
-export type WellnessHour = typeof wellnessHours.$inferSelect;
-export type InsertWellnessHour = typeof wellnessHours.$inferInsert;
-
-/**
- * Wellness prices
- */
-export const wellnessPrices = mysqlTable("wellness_prices", {
-  id: int("id").autoincrement().primaryKey(),
-  lang: varchar("lang", { length: 5 }).notNull(),
-  label: varchar("label", { length: 255 }).notNull(),
-  price: varchar("price", { length: 128 }).notNull(),
-  sortOrder: int("sortOrder").default(0),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
-});
-
-export type WellnessPrice = typeof wellnessPrices.$inferSelect;
-export type InsertWellnessPrice = typeof wellnessPrices.$inferInsert;
-
-/**
  * Location sections – points of interest categories
  */
 export const locationSections = mysqlTable("location_sections", {
@@ -161,7 +111,7 @@ export type InsertLocationSection = typeof locationSections.$inferInsert;
 export const pagesMeta = mysqlTable("pages_meta", {
   id: int("id").autoincrement().primaryKey(),
   lang: varchar("lang", { length: 5 }).notNull(),
-  pageSlug: varchar("pageSlug", { length: 64 }).notNull(), // 'home', 'rooms', 'wellness', 'location', 'booking'
+  pageSlug: varchar("pageSlug", { length: 64 }).notNull(), // 'home', 'rooms', 'location', 'booking', 'experiences'
   metaTitle: varchar("metaTitle", { length: 512 }),
   metaDescription: text("metaDescription"),
   heroTitle: varchar("heroTitle", { length: 255 }),

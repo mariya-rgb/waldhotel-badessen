@@ -35,7 +35,6 @@ export default function Home() {
   const { lang, t } = useLanguage();
   const bookUrl = lang === 'de' ? '/buchen' : '/en/book';
   const roomsUrl = lang === 'de' ? '/zimmer' : '/en/rooms';
-  const wellnessUrl = lang === 'de' ? '/wellness' : '/en/wellness';
   const locationUrl = lang === 'de' ? '/bad-essen' : '/en/location';
 
   // Fetch hotel info from database
@@ -123,32 +122,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wellness – Text links, Bild rechts */}
+      {/* Für Arbeit, Wege und Auszeiten */}
       <section className="section-padding bg-[#F7F5F0]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <RevealSection className="lg:col-span-7 lg:pr-8 order-2 lg:order-1" delay={200}>
-              <p className="subtitle-caps mb-4">{t.wellness.label}</p>
+              <p className="subtitle-caps mb-4">{lang === 'de' ? 'Übernachten in Bad Essen' : 'Staying in Bad Essen'}</p>
               <h2 className="font-heading text-[28px] md:text-[34px] text-[#253541] font-light leading-tight mb-6">
-                {t.wellness.title}
+                {lang === 'de' ? 'Praktisch für den Arbeitseinsatz. Offen für Ihre Auszeit.' : 'Practical for work stays. Open for your time away.'}
               </h2>
               <div className="gold-line mb-8" />
+              <p className="text-base leading-[1.75] text-[#253541]/80 mb-5">
+                {lang === 'de'
+                  ? 'Das Waldhotel Bad Essen ist vor allem eine verlässliche Unterkunft für Monteure, Handwerker und Geschäftsreisende. Ruhige Zimmer, unkomplizierte Anreise, Parkplätze und WLAN machen den Aufenthalt angenehm und planbar.'
+                  : 'Waldhotel Bad Essen is first and foremost a reliable place to stay for tradespeople, craftsmen and business travellers. Quiet rooms, easy arrival, parking and WiFi make every stay comfortable and predictable.'}
+              </p>
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
-                {t.wellness.text}
+                {lang === 'de'
+                  ? 'Gleichzeitig heißen wir Feriengäste und Gruppen willkommen, die Bad Essen zu Fuß, mit dem Fahrrad oder auf Waldwegen entdecken möchten. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.'
+                  : 'We also welcome holiday guests and groups who want to explore Bad Essen on foot, by bicycle or along the forest trails. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.'}
               </p>
               <Link
-                href={wellnessUrl}
+                href={roomsUrl}
                 className="inline-flex items-center gap-2 text-[#28863E] text-sm tracking-wide hover:text-[#1f6d32] transition-colors duration-300 group"
               >
-                {t.wellness.cta}
+                {lang === 'de' ? 'Zimmer ansehen' : 'View rooms'}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </RevealSection>
             <RevealSection className="lg:col-span-5 order-1 lg:order-2">
               <div className="relative overflow-hidden">
                 <img
-                  src={IMAGES.wellnessSauna}
-                  alt={lang === 'de' ? 'Waldsauna Bad Essen – Saunalandschaft' : 'Forest Sauna Bad Essen – Sauna landscape'}
+                  src={IMAGES.roomDouble}
+                  alt={lang === 'de' ? 'Ruhiges Doppelzimmer im Waldhotel Bad Essen' : 'Quiet double room at Waldhotel Bad Essen'}
                   className="w-full h-[400px] lg:h-[520px] object-cover"
                   loading="lazy"
                 />
@@ -180,8 +186,8 @@ export default function Home() {
               <div className="gold-line mb-8" />
               <p className="text-base leading-[1.75] text-[#253541]/80 mb-8">
                 {lang === 'de'
-                  ? 'Unsere Arrangements verbinden Übernachtung, Sauna und Frühstück zu einem Erlebnis, das in Erinnerung bleibt. Ob Wochenendauszeit zu zweit oder individuelle Wünsche – wir gestalten Ihren Aufenthalt.'
-                  : 'Our arrangements combine accommodation, sauna and breakfast into an experience that stays with you. Whether a weekend retreat for two or individual wishes – we design your stay.'}
+                  ? 'Unsere Erlebnisse ergänzen Ihren Aufenthalt mit besonderen Momenten in der Natur – etwa einem Picknick mit kaltem Lunch. Für Gruppen planen wir passende Leistungen gern nach vorheriger Anfrage.'
+                  : 'Our experiences add special moments in nature to your stay – for example a picnic with a cold lunch. For groups, we are happy to arrange suitable services by prior request.'}
               </p>
               <Link
                 href={lang === 'de' ? '/erlebnisse' : '/en/experiences'}

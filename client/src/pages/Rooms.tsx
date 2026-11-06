@@ -88,6 +88,9 @@ export default function Rooms() {
               {t.roomsPage.intro}
             </p>
             <div className="gold-line mx-auto mt-8" />
+            <div className="mt-8 rounded-sm bg-[#F7F5F0] px-6 py-5 text-left">
+              <p className="text-sm leading-relaxed text-[#253541]/75">{t.roomsPage.stayNote}</p>
+            </div>
           </RevealSection>
         </div>
       </section>

@@ -63,7 +63,6 @@ export default function Footer() {
               {lang === 'de' ? (
                 <>
                   <Link href="/zimmer" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.rooms}</Link>
-                  <Link href="/wellness" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.wellness}</Link>
                   <Link href="/erlebnisse" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.experiences}</Link>
                   <Link href="/bad-essen" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.location}</Link>
                   <Link href="/buchen" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.book}</Link>
@@ -71,7 +70,6 @@ export default function Footer() {
               ) : (
                 <>
                   <Link href="/en/rooms" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.rooms}</Link>
-                  <Link href="/en/wellness" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.wellness}</Link>
                   <Link href="/en/experiences" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.experiences}</Link>
                   <Link href="/en/location" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.location}</Link>
                   <Link href="/en/book" className="block text-sm hover:text-[#C8A96E] transition-colors duration-300">{t.nav.book}</Link>

@@ -8,7 +8,6 @@ export const translations = {
     nav: {
       home: 'Startseite',
       rooms: 'Zimmer & Suiten',
-      wellness: 'Waldsauna & Wellness',
       location: 'Lage & Umgebung',
       book: 'Buchen',
       experiences: 'Erlebnisse',
@@ -23,15 +22,9 @@ export const translations = {
     hotel: {
       label: 'Das Hotel',
       title: 'Tradition trifft Natur',
-      text1: 'Seit 1906 empfängt das Waldhotel Bad Essen seine Gäste am Fuße des Wiehengebirges. Das historische Fachwerkhaus verbindet den Charme vergangener Zeiten mit modernem Komfort – ein Ort, an dem man ankommt und zur Ruhe findet.',
-      text2: '19 individuell eingerichtete Zimmer bieten Ihnen alles, was Sie für einen erholsamen Aufenthalt brauchen: Boxspringbetten, Blick ins Grüne, kostenfreies WLAN und Parkplätze direkt am Haus.',
+      text1: 'Seit 1906 empfängt das Waldhotel Bad Essen seine Gäste am Fuße des Wiehengebirges. Heute ist unser Haus vor allem eine verlässliche Unterkunft für Monteure, Handwerker und Geschäftsreisende – mit ruhigen Zimmern, unkomplizierter Anreise und persönlicher Betreuung.',
+      text2: 'Auch Feriengäste und Gruppen sind willkommen, um Bad Essen zu Fuß, mit dem Fahrrad und auf den Wegen durch den Wald zu entdecken. 19 Zimmer, kostenfreies WLAN und Parkplätze direkt am Haus machen den Aufenthalt angenehm. Ein reguläres Frühstück bieten wir nicht an; für Gruppen ist Frühstück nach vorheriger Anfrage möglich.',
       cta: 'Unsere Zimmer entdecken',
-    },
-    wellness: {
-      label: 'Wellness',
-      title: 'Die Waldsauna',
-      text: 'Auf über 500 m² erwartet Sie direkt am Hotel eine Saunalandschaft, die alle Sinne anspricht. Bio-Sauna, finnische Sauna, Tauchbecken und Außen-Sauna – eingebettet in die Natur des Wiehengebirges.',
-      cta: 'Wellness erleben',
     },
     location: {
       label: 'Lage & Umgebung',
@@ -59,7 +52,7 @@ export const translations = {
     // Rooms page
     roomsPage: {
       heroTitle: 'Zimmer & Suiten',
-      intro: 'Alle 19 Zimmer bieten Boxspringbetten, Blick ins Wiehengebirge und den Charme eines Fachwerkhauses – kombiniert mit modernem Komfort.',
+      intro: 'Alle 19 Zimmer bieten Boxspringbetten, Blick ins Wiehengebirge und den Charme eines Fachwerkhauses – kombiniert mit modernem Komfort. Unser Haus ist besonders auf Monteure, Handwerker und Geschäftsreisende eingestellt und heißt auch Feriengäste sowie Gruppen willkommen.',
       double: {
         title: 'Doppelzimmer',
         desc: 'Doppel-Boxspringbett, Flachbild-TV, Bad mit Dusche & Fön, Telefon, Teestation, WLAN. Nichtraucherzimmer.',
@@ -78,45 +71,17 @@ export const translations = {
         price: 'Ab 119 € / Nacht',
         cta: 'Waldsuite buchen',
       },
-      extras: 'Zusatzleistungen',
+      extras: 'Weitere Hinweise',
       extrasData: [
-        { service: 'Frühstück (Hotelgäste)', price: '14,50 € / Person' },
-        { service: 'Frühstück (externe Gäste)', price: '20,50 € / Person' },
         { service: 'Hund', price: '10,00 € / Nacht' },
         { service: 'Zustellbett', price: '30,00 € / Nacht' },
-        { service: 'Waldsauna-Tageskarte (Hotelgäste)', price: '18,50 € / Tag' },
-        { service: 'Waldsauna-Tageskarte (extern)', price: '22,50 € / Tag' },
       ],
+      stayNote: 'Unser Haus wird hauptsächlich von Monteuren, Handwerkern und Geschäftsreisenden genutzt. Feriengäste, Wanderer, Radfahrer und Gruppen sind ebenfalls willkommen. Ein reguläres Frühstück bieten wir nicht an; für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.',
       notes: [
         'Erdgeschosszimmer rollstuhlgerecht, Platz für 4-köpfige Familie',
         'Hunde willkommen nach vorheriger Absprache',
         'Kostenlose Parkplätze und WLAN',
       ],
-    },
-    // Wellness page
-    wellnessPage: {
-      heroTitle: 'Waldsauna & Wellness',
-      intro: 'Direkt am Hotel – die Waldsauna Bad Essen. Auf über 500 m² erwartet Sie eine Saunalandschaft, die alle Sinne anspricht. Eingebettet in die Natur des Wiehengebirges.',
-      offerings: [
-        { title: 'Bio-Sauna', desc: 'Sanfte Wärme bei ca. 60°C' },
-        { title: 'Finnische Sauna', desc: 'Klassisch bei ca. 90°C' },
-        { title: 'Tauchbecken', desc: 'Erfrischung nach dem Saunagang' },
-        { title: 'Außen-Sauna', desc: 'Saunieren unter freiem Himmel im Saunagarten' },
-      ],
-      hoursTitle: 'Öffnungszeiten',
-      hours: [
-        { day: 'Freitag', time: '16:00 – 21:00', note: '–' },
-        { day: 'Sonntag', time: '13:00 – 20:00', note: '–' },
-        { day: 'Damensauna', time: 'Auf Anfrage', note: '–' },
-        { day: 'Gruppen', time: 'Auf Anfrage', note: '–' },
-      ],
-      pricesTitle: 'Preise',
-      priceGuest: 'Hotelgäste: 18,50 € / Tag',
-      priceExternal: 'Externe Gäste: 22,50 € / Tag',
-      contactTitle: 'Kontakt',
-      contactPhone: '+49 176 3241 9623',
-      contactEmail: 'kontakt@waldhotel-badessen.de',
-      cta: 'Zimmer mit Wellness buchen',
     },
     // Location page
     locationPage: {
@@ -145,6 +110,8 @@ export const translations = {
     bookingPage: {
       title: 'Direkt buchen – bester Preis garantiert',
       intro: 'Buchen Sie Ihren Aufenthalt im Waldhotel Bad Essen direkt und ohne Umwege. Wählen Sie Ihren Wunschzeitraum und Zimmertyp.',
+      audienceNote: 'Unser Haus beherbergt hauptsächlich Monteure, Handwerker und Geschäftsreisende. Feriengäste und Gruppen sind für Wanderungen, Wald- und Radtouren ebenfalls herzlich willkommen.',
+      breakfastNote: 'Ein reguläres Frühstück bieten wir nicht an. Für Gruppen kann Frühstück nach vorheriger Anfrage organisiert werden.',
       phone: 'Sie möchten lieber telefonisch buchen? Rufen Sie uns an:',
       emailText: 'Oder schreiben Sie uns:',
       also: 'Auch buchbar über:',
@@ -189,7 +156,6 @@ export const translations = {
     nav: {
       home: 'Home',
       rooms: 'Rooms & Suites',
-      wellness: 'Forest Sauna & Wellness',
       location: 'Location & Surroundings',
       book: 'Book Now',
       experiences: 'Experiences',
@@ -204,15 +170,9 @@ export const translations = {
     hotel: {
       label: 'The Hotel',
       title: 'Tradition Meets Nature',
-      text1: 'Since 1906, the Waldhotel Bad Essen has welcomed guests at the foot of the Wiehengebirge mountains. This historic half-timbered house combines the charm of bygone times with modern comfort – a place where you arrive and find peace.',
-      text2: '19 individually designed rooms offer everything you need for a relaxing stay: box-spring beds, views of the green landscape, complimentary WiFi and parking right at the hotel.',
+      text1: 'Since 1906, Waldhotel Bad Essen has welcomed guests at the foot of the Wiehengebirge. Today, our house is first and foremost a reliable place to stay for tradespeople, craftsmen and business travellers – with quiet rooms, easy arrival and personal service.',
+      text2: 'Holiday guests and groups are also welcome to explore Bad Essen on foot, by bicycle and along the forest trails. 19 rooms, complimentary WiFi and parking right at the hotel make every stay comfortable. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.',
       cta: 'Discover Our Rooms',
-    },
-    wellness: {
-      label: 'Wellness',
-      title: 'The Forest Sauna',
-      text: 'On over 500 m², a sauna landscape that appeals to all senses awaits you right at the hotel. Bio sauna, Finnish sauna, plunge pool and outdoor sauna – nestled in the nature of the Wiehengebirge.',
-      cta: 'Experience Wellness',
     },
     location: {
       label: 'Location & Surroundings',
@@ -239,7 +199,7 @@ export const translations = {
     },
     roomsPage: {
       heroTitle: 'Rooms & Suites',
-      intro: 'All 19 rooms feature box-spring beds, views of the Wiehengebirge and the charm of a half-timbered house – combined with modern comfort.',
+      intro: 'All 19 rooms feature box-spring beds, views of the Wiehengebirge and the charm of a half-timbered house – combined with modern comfort. Our house is particularly suited to tradespeople, craftsmen and business travellers, while holiday guests and groups are also welcome.',
       double: {
         title: 'Double Room',
         desc: 'Double box-spring bed, flat-screen TV, bathroom with shower & hairdryer, telephone, tea station, WiFi. Non-smoking room.',
@@ -258,44 +218,17 @@ export const translations = {
         price: 'From €119 / night',
         cta: 'Book Forest Suite',
       },
-      extras: 'Additional Services',
+      extras: 'Practical details',
       extrasData: [
-        { service: 'Breakfast (hotel guests)', price: '€14.50 / person' },
-        { service: 'Breakfast (external guests)', price: '€20.50 / person' },
         { service: 'Dog', price: '€10.00 / night' },
         { service: 'Extra bed', price: '€30.00 / night' },
-        { service: 'Forest sauna day pass (hotel guests)', price: '€18.50 / day' },
-        { service: 'Forest sauna day pass (external)', price: '€22.50 / day' },
       ],
+      stayNote: 'Our house is primarily used by tradespeople, craftsmen and business travellers. Holiday guests, hikers, cyclists and groups are also welcome. We do not offer regular breakfast; breakfast can be arranged for groups by prior request.',
       notes: [
         'Ground floor rooms wheelchair accessible, space for family of 4',
         'Dogs welcome by prior arrangement',
         'Free parking and WiFi',
       ],
-    },
-    wellnessPage: {
-      heroTitle: 'Forest Sauna & Wellness',
-      intro: 'Right at the hotel – the Forest Sauna Bad Essen. On over 500 m², a sauna landscape that appeals to all senses awaits you. Nestled in the nature of the Wiehengebirge.',
-      offerings: [
-        { title: 'Bio Sauna', desc: 'Gentle warmth at approx. 60°C' },
-        { title: 'Finnish Sauna', desc: 'Classic at approx. 90°C' },
-        { title: 'Plunge Pool', desc: 'Refreshment after the sauna session' },
-        { title: 'Outdoor Sauna', desc: 'Sauna under the open sky in the sauna garden' },
-      ],
-      hoursTitle: 'Opening Hours',
-      hours: [
-        { day: 'Friday', time: '4:00 PM – 9:00 PM', note: '–' },
-        { day: 'Sunday', time: '1:00 PM – 8:00 PM', note: '–' },
-        { day: "Ladies' Sauna", time: 'On request', note: '–' },
-        { day: 'Groups', time: 'On request', note: '–' },
-      ],
-      pricesTitle: 'Prices',
-      priceGuest: 'Hotel guests: €18.50 / day',
-      priceExternal: 'External guests: €22.50 / day',
-      contactTitle: 'Contact',
-      contactPhone: '+49 176 3241 9623',
-      contactEmail: 'kontakt@waldhotel-badessen.de',
-      cta: 'Book Room with Wellness',
     },
     locationPage: {
       heroTitle: 'Location & Surroundings',
@@ -322,6 +255,8 @@ export const translations = {
     bookingPage: {
       title: 'Book Directly – Best Price Guaranteed',
       intro: 'Book your stay at the Waldhotel Bad Essen directly and without detours. Choose your preferred dates and room type.',
+      audienceNote: 'Our house primarily accommodates tradespeople, craftsmen and business travellers. Holiday guests and groups are also very welcome for hiking, forest walks and cycling tours.',
+      breakfastNote: 'We do not offer regular breakfast. Breakfast can be arranged for groups by prior request.',
       phone: 'Prefer to book by phone? Call us:',
       emailText: 'Or write to us:',
       also: 'Also bookable via:',
@@ -375,7 +310,6 @@ export function getLocalizedPath(path: string, lang: Lang): string {
     const map: Record<string, string> = {
       '/': '/en',
       '/zimmer': '/en/rooms',
-      '/wellness': '/en/wellness',
       '/bad-essen': '/en/location',
       '/buchen': '/en/book',
       '/erlebnisse': '/en/experiences',
